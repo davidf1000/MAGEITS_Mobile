@@ -1,27 +1,25 @@
-import { StatusBar } from 'expo-status-bar';
-import React,{useState} from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import LoginPage from './src/LoginPage'
+import HomePage from './src/HomePage'
+import RegisterAccountPage from './src/RegisterPage'
+import ForgotPasswordPage from './src/ForgotPage'
+
+const Stack = createStackNavigator();
 
 export default function App() {
-  const [val,setVal]= useState(0);
-  const clickButton = ()=>{
-    setVal(val+1);
-  } 
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <Text>{val}</Text>
-      <Button title="Change Text !" onPress={clickButton} />
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Inviso" component={LoginPage} />
+        <Stack.Screen name="Home" component={HomePage} />
+        <Stack.Screen name="Register Account" component={RegisterAccountPage} />
+        <Stack.Screen name="Forgot Password" component={ForgotPasswordPage} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+
