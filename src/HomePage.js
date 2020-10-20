@@ -1,14 +1,11 @@
 import React, { useState } from 'react';
-import { DefaultTheme, Provider as PaperProvider, BottomNavigation, Text } from 'react-native-paper';
-import Profile from './Contents/Profile';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { Ionicons } from '@expo/vector-icons';
+import { DefaultTheme, Provider as PaperProvider, Text } from 'react-native-paper';
+import Home from './Contents/Home';
 import Book from './Contents/Book';
 import History from './Contents/History';
-
-const ProfileRoute = () => <Profile />;
-
-const BookRoute = () => <Book />;
-
-const HistoryRoute = () => <History />;
+import Profile from './Contents/Profile';
 
 const theme = {
     ...DefaultTheme,
@@ -20,29 +17,46 @@ const theme = {
     },
 };
 
+const Tab = createBottomTabNavigator();
+
 function HomePage({ navigation }) {
-    const [index, setIndex] = React.useState(0);
-    const [routes] = React.useState([
-        { key: 'profile', title: 'Profile', icon: 'account' },
-        { key: 'book', title: 'Book', icon: 'book' },
-        { key: 'history', title: 'History', icon: 'history' },
-    ]);
-
-
-    const renderScene = BottomNavigation.SceneMap({
-        profile: ProfileRoute,
-        book: BookRoute,
-        history: HistoryRoute,
-    });
-
     return (
         <PaperProvider theme={theme}>
-            <BottomNavigation
-                navigationState={{ index, routes }}
-                onIndexChange={setIndex}
-                renderScene={renderScene}
-            />
-        </PaperProvider>
+            <Tab.Navigator
+                screenOptions={({ route }) => ({
+                    tabBarIcon: ({ focused, color, size }) => {
+                        let iconName;
+
+                        if (route.name === 'Home') {
+                            iconName = focused
+                                ? 'ios-home'
+                                : 'ios-home';
+                        } else
+                            if (route.name === 'Book') {
+                                iconName = focused ? 'ios-book' : 'ios-book';
+                            }
+                            else 
+                            if (route.name === 'History') {
+                                iconName = focused ? 'ios-clock' : 'ios-clock';
+                            }
+                            else 
+                            if (route.name === 'Profile') {
+                                iconName = focused ? 'ios-person' : 'ios-person';
+                            }
+                        return <Ionicons name={iconName} size={size} color={color} />;
+                    },
+                })}
+                tabBarOptions={{
+                    activeTintColor: 'white',
+                    inactiveTintColor: 'gray',
+                    style:{backgroundColor: 'purple'} 
+                }}>
+                <Tab.Screen name="Home" component={Home} />
+                <Tab.Screen name="Book" component={Book} />
+                <Tab.Screen name="History" component={History} />
+                <Tab.Screen name="Profile" component={Profile} />
+            </Tab.Navigator>
+        </PaperProvider >
     );
 }
 

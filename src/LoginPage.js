@@ -17,21 +17,22 @@ function LoginPage({ navigation }) {
     const [password, setPassword] = React.useState('');
     return (
         <PaperProvider theme={theme}>
-            <View style={{ flexDirection: 'column', justifyContent: 'center' }}>
+            <View style={{flex:1, alignItems: 'center', justifyContent: 'center' }}>
                 <Image
                     source={require('./img/logo.png')}
                     style={{
                         alignSelf: 'center',
-                        margin: 40,
-                        height: 150,
-                        width: 150
+                        marginTop: '30%',
+                        marginBottom: '10%',
+                        height: '25%',
+                        width: '40%'
                     }}
                 />
                 <Text
                     style={{
                         fontSize: 20,
                         alignSelf: 'center',
-                        marginBottom: 20
+                        marginBottom: '5%'
                     }}
                 >
                     Welcome Back
@@ -42,7 +43,7 @@ function LoginPage({ navigation }) {
                     onChangeText={email => setEmail(email)}
                     style={{
                         alignSelf: 'center',
-                        marginBottom: 20,
+                        marginBottom: '5%',
                         height: 60,
                         width: 300,
                         alignContent: 'center',
@@ -55,7 +56,7 @@ function LoginPage({ navigation }) {
                     onChangeText={password => setPassword(password)}
                     style={{
                         alignSelf: 'center',
-                        marginBottom: 20,
+                        marginBottom: '5%',
                         height: 60,
                         width: 300,
                         alignContent: 'center',
@@ -73,7 +74,7 @@ function LoginPage({ navigation }) {
                         width: 200,
                         alignContent: 'center',
                         justifyContent: 'center',
-                        marginBottom: 20
+                        marginBottom: '10%'
                     }}
                 >
                     Login
@@ -82,7 +83,7 @@ function LoginPage({ navigation }) {
                     style={{
                         textAlign: 'center',
                         fontSize: 12,
-                        marginBottom: 20
+                        marginBottom: '5%'
                     }}
                 >
                     <Text>Don't have an account ? </Text>
@@ -100,7 +101,7 @@ function LoginPage({ navigation }) {
                     style={{
                         textAlign: 'center',
                         fontSize: 12,
-                        marginBottom: 20,
+                        marginBottom: '30%',
                         color: 'blue'
                     }}
                 >
