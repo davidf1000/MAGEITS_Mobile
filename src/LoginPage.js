@@ -6,8 +6,8 @@ import {
   Button,
   TextInput,
 } from "react-native-paper";
-import * as Font from "expo-font";
-
+import {useFonts} from "expo-font";
+// import { useFonts } from '@use-expo/font'
 //Redux
 import { connect } from "react-redux";
 import { loadUser, loginCognito } from "./actions/auth";
@@ -40,13 +40,15 @@ function LoginPage({
     navigation.navigate("Loading Page");
   };
   const [loaded] = useFonts({
-    Montserrat: require("./assets/fonts/Montserrat.ttf"),
+    // Roboto: require("./Contents/fonts/Roboto-Regular.ttf"),
+    Roboto: require("./Contents/fonts/Roboto-Black.ttf"),
   });
-  if (!loaded) {
-    return null;
-  }
+  // if (!loaded) {
+  //   return null;
+  // }
   return (
     <PaperProvider theme={theme}>
+    
       <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
         <Image
           source={require("./img/logo.png")}
@@ -63,9 +65,11 @@ function LoginPage({
             fontSize: 20,
             alignSelf: "center",
             marginBottom: "5%",
+            //fontFamily: 'Roboto'
           }}
         >
-          Welcome Back
+          Welcome Back{'\n'}
+          {loaded ? "LOADED" : "NOT LOADED"}
         </Text>
         {/* Kalo failed login attempt */}
         <Text
@@ -73,6 +77,7 @@ function LoginPage({
             fontSize: 20,
             alignSelf: "center",
             marginBottom: "5%",
+            //fontFamily: 'Roboto'
           }}
         >
           {alert.length !== 0 && JSON.stringify(alert[0].msg)}
@@ -88,6 +93,7 @@ function LoginPage({
             width: 300,
             alignContent: "center",
             justifyContent: "center",
+            //fontFamily: 'Roboto'
           }}
         />
         <TextInput
@@ -101,6 +107,7 @@ function LoginPage({
             width: 300,
             alignContent: "center",
             justifyContent: "center",
+            //fontFamily: 'Roboto'
           }}
           secureTextEntry={true}
         />
@@ -116,6 +123,9 @@ function LoginPage({
             justifyContent: "center",
             marginBottom: "10%",
           }}
+          labelStyle={{
+            //fontFamily: 'Roboto'
+          }}
         >
           Login
         </Button>
@@ -124,6 +134,7 @@ function LoginPage({
             textAlign: "center",
             fontSize: 12,
             marginBottom: "5%",
+            //fontFamily: 'Roboto'
           }}
         >
           <Text>Don't have an account ? </Text>
@@ -143,6 +154,7 @@ function LoginPage({
             fontSize: 12,
             marginBottom: "30%",
             color: "blue",
+            //fontFamily: 'Roboto'
           }}
         >
           Forgot Password
