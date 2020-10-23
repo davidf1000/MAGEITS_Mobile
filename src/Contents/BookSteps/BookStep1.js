@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { DefaultTheme, Provider as PaperProvider, Button, TextInput } from 'react-native-paper';
+import { DefaultTheme, Provider as PaperProvider, Button, TextInput,ProgressBar, Colors  } from 'react-native-paper';
 import { Text, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import DatePicker from 'react-native-datepicker'
@@ -30,6 +30,7 @@ function Book1({naviagation}) {
                         }}>
                         Book a Visit
                     </Text>
+                    <ProgressBar progress={0.5} color={Colors.red800} />
                     <Text
                         style={{
                             fontSize: 20,

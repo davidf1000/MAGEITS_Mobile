@@ -15,9 +15,10 @@ import HistoryBadge from './src/Contents/HistoryBadge';
 //Redux
 import { Provider as ProviderRedux } from 'react-redux';
 import store from './store';
+// Font 
+
 console.disableYellowBox = true;
 const Stack = createStackNavigator();
-
 function Register() {
   return (
     <Stack.Navigator>
@@ -28,7 +29,14 @@ function Register() {
     </Stack.Navigator>
   )
 }
-
+// const fetchFonts = () => {
+//   return Font.loadAsync({
+//     'roboto-bold': require('./src/fonts/Roboto-Bold.ttf'),
+//     'roboto-regular': require('./src/fonts/Roboto-Regular.ttf'),
+//     'roboto-light': require('./src/fonts/Roboto-Light.ttf'),
+//     'roboto-black': require('./src/fonts/Roboto-Black.ttf'),
+//   });
+// }
 function ForgotPassword() {
   return (
     <Stack.Navigator>
@@ -37,6 +45,7 @@ function ForgotPassword() {
     </Stack.Navigator>
   )
 }
+
 
 export default function App() {
   return (

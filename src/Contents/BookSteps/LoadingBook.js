@@ -32,7 +32,7 @@ function LoadingBook({ navigation }) {
     <PaperProvider theme={theme}>
       <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
         <Image
-          source={require("./../../img/logo.png")}
+          source={require("./../../img/mage.png")}
           style={{
             alignSelf: "center",
             marginTop: "30%",

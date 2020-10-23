@@ -6,8 +6,7 @@ import {
   Button,
   TextInput,
 } from "react-native-paper";
-import {useFonts} from "expo-font";
-// import { useFonts } from '@use-expo/font'
+
 //Redux
 import { connect } from "react-redux";
 import { loadUser, loginCognito } from "./actions/auth";
@@ -21,7 +20,7 @@ const theme = {
   },
 };
 
-function LoginPage({
+const LoginPage= ({
   navigation,
   loginCognito,
   isAdmin,
@@ -29,7 +28,8 @@ function LoginPage({
   setAlert,
   alert,
   loading,
-}) {
+}) => {
+
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const onSubmit = async () => {
@@ -39,20 +39,23 @@ function LoginPage({
     await loginCognito("admin@gmail.com", "Admin123");
     navigation.navigate("Loading Page");
   };
-  const [loaded] = useFonts({
-    // Roboto: require("./Contents/fonts/Roboto-Regular.ttf"),
-    Roboto: require("./Contents/fonts/Roboto-Black.ttf"),
-  });
-  // if (!loaded) {
-  //   return null;
+  
+  // if(!dataLoaded){
+  //   return (
+  //     <AppLoading 
+  //       startAsync={fetchFonts}
+  //       onFinish={()=>setDataLoaded(true)}
+  //     />
+  //   )
   // }
   return (
     <PaperProvider theme={theme}>
     
       <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
         <Image
-          source={require("./img/logo.png")}
+          source={require("./img/mage.png")}
           style={{
+            
             alignSelf: "center",
             marginTop: "30%",
             marginBottom: "10%",
@@ -65,19 +68,16 @@ function LoginPage({
             fontSize: 20,
             alignSelf: "center",
             marginBottom: "5%",
-            //fontFamily: 'Roboto'
           }}
         >
           Welcome Back{'\n'}
-          {loaded ? "LOADED" : "NOT LOADED"}
-        </Text>
+        </Text>       
         {/* Kalo failed login attempt */}
         <Text
           style={{
             fontSize: 20,
             alignSelf: "center",
             marginBottom: "5%",
-            //fontFamily: 'Roboto'
           }}
         >
           {alert.length !== 0 && JSON.stringify(alert[0].msg)}
