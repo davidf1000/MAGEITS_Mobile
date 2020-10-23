@@ -6,7 +6,6 @@ import {
   Button,
   TextInput,
 } from "react-native-paper";
-
 //Redux
 const theme = {
   ...DefaultTheme,
