@@ -1,41 +1,63 @@
-import React, { Component } from 'react';
+import React, { Component,useState,useEffect } from 'react';
 import { StyleSheet, View, ScrollView } from 'react-native';
 import { Table, Row } from 'react-native-table-component';
+import {getHistory} from '../actions/api';
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+const History = (
+    {
+        match,
+        attributes: {
+          userId,
+          address,
+          birthdate,
+          phone,
+          gender,
+          admin,
+          profile,
+          name,
+          email,
+          ektp,
+        }}
+) => {
 
-export default class History extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
+        const [data,setData] = useState({
             myArray: [],
             tableHead: ['Id', 'Visitee', 'Date', 'Room', 'Ward'],
             widthArr: [20, 120, 100, 40, 40]
-        }
-    }
+        })
 
-    componentDidMount() {
+    useEffect(()=>{
         fetch('https://5f8e06b64c15c40016a1e554.mockapi.io/api/testtabel/Schedule')
             .then(response => response.json())
             .then(myArray => {
-                this.setState({ myArray })
-            })
-    }
+                setData({...data, myArray })
+            });
+        const fetchHistory= async ()=>{
+        // Nanti datanya ganti pake yang ini 
+        const res= await getHistory(userId);
+        //   setData(res);
+        console.log(JSON.stringify(res));
 
-    render() {
-        const tableData = this.state.myArray.map(record => ([record.Id, record.Visitee, record.Date, record.Room, record.Ward]));
+        }
+        fetchHistory();
+      },[])
+
+   
         return (
             <View style={styles1.container}>
                 <View>
                     <Table borderStyle={{ borderWidth: 1, borderColor: 'black' }}>
-                        <Row data={this.state.tableHead} widthArr={this.state.widthArr} style={styles1.header} textStyle={styles1.text} />
+                        <Row data={data.tableHead} widthArr={data.widthArr} style={styles1.header} textStyle={styles1.text} />
                     </Table>
                     <ScrollView style={styles1.dataWrapper}>
                         <Table borderStyle={{ borderWidth: 1, borderColor: 'black' }}>
                             {
-                                tableData.map((rowData, index) => (
+                                data.myArray.map(record => ([record.Id, record.Visitee, record.Date, record.Room, record.Ward])).map((rowData, index) => (
                                     <Row
                                         key={index}
                                         data={rowData}
-                                        widthArr={this.state.widthArr}
+                                        widthArr={data.widthArr}
                                         style={[styles1.row, index % 2 && { backgroundColor: '#F7F6E7' }]}
                                         textStyle={styles1.text}
                                     />
@@ -46,7 +68,7 @@ export default class History extends Component {
                 </View>
             </View>
         )
-    }
+    
 }
 
 const styles1 = StyleSheet.create({
@@ -56,3 +78,15 @@ const styles1 = StyleSheet.create({
     dataWrapper: { marginTop: -1 },
     row: { height: 40 }
 });
+
+
+History.propTypes = {
+    attributes: PropTypes.object.isRequired,
+  };
+  
+  const mapStateToProps = (state) => ({
+    attributes: state.auth.attributes,
+  });
+  
+  export default connect(mapStateToProps, {})(History);
+  

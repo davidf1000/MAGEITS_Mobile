@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { DefaultTheme, Provider as PaperProvider, Button, TextInput } from 'react-native-paper';
 import { Text, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-
+import DatePicker from 'react-native-datepicker'
 const theme = {
     ...DefaultTheme,
     roundness: 2,
@@ -15,9 +15,9 @@ const theme = {
 
 function Book1({naviagation}) {
     const navigation = useNavigation();
-    const [visitee, setVisitee] = React.useState('');
-    const [ward, setWard] = React.useState('');
-    const [date, setDate] = React.useState('');
+    const [visitee, setVisitee] = useState('');
+    const [ward, setWard] = useState('');
+    const [date, setDate] = useState('');
     return (
         <PaperProvider theme={theme}>
             <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
@@ -78,6 +78,29 @@ function Book1({naviagation}) {
                             justifyContent: 'center'
                         }}
                     />
+      <DatePicker
+        style={{width: 200}}
+        date={date}
+        mode="date"
+        placeholder="select date"
+        format="YYYY-MM-DD"
+        minDate="2016-05-01"
+        maxDate="2016-06-01"
+        confirmBtnText="Confirm"
+        cancelBtnText="Cancel"
+        customStyles={{
+          dateIcon: {
+            position: 'absolute',
+            left: 0,
+            top: 4,
+            marginLeft: 0
+          },
+          dateInput: {
+            marginLeft: 36
+          }
+        }}
+        onDateChange={date => setDate(date)}
+      />
                 </View>
                 <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center', marginTop: '10%', marginBottom: '5%' }}>
                     <Button

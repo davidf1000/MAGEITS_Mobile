@@ -10,7 +10,11 @@ import RegisterStep3 from './src/RegisterPage/RegisterStep3'
 import RegisterStep4 from './src/RegisterPage/RegisterStep4'
 import ForgotStep1 from './src/ForgotPage/ForgotStep1'
 import ForgotStep2 from './src/ForgotPage/ForgotStep2'
-
+import LoadingPage from './src/LoadingPage';
+//Redux
+import { Provider as ProviderRedux } from 'react-redux';
+import store from './store';
+console.disableYellowBox = true;
 const Stack = createStackNavigator();
 
 function Register() {
@@ -35,6 +39,7 @@ function ForgotPassword() {
 
 export default function App() {
   return (
+    <ProviderRedux store={store}>
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Inviso" component={LoginPage} />
@@ -42,8 +47,10 @@ export default function App() {
         <Stack.Screen name="Register Account" component={Register} />
         <Stack.Screen name="Forgot Password" component={ForgotPassword} />
         <Stack.Screen name="Digital Badge" component={DigitalBadge} />
+        <Stack.Screen name="Loading Page" component={LoadingPage} />
       </Stack.Navigator>
     </NavigationContainer>
+    </ProviderRedux>
   );
 }
 

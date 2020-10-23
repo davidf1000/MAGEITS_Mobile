@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
-import { render } from 'react-dom';
+import React, { useEffect,useState } from 'react';
 import { View, Text, Image } from 'react-native';
 import { DefaultTheme, Provider as PaperProvider, DataTable } from 'react-native-paper';
 import { Table, Col} from 'react-native-table-component';
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
 const theme = {
     ...DefaultTheme,
@@ -16,17 +17,25 @@ const theme = {
 
 
 
-export default class Profile extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            tableHead: ['Email', 'DoB', 'Gender', 'Address', 'Phone'],
-            tableData: ['test@mail.com', '20-10-10', 'M', 'Jalan JKT', '0877843723']
-        };
-    }
-    render() {
-        const state = this.state
-
+const Profile = ({
+    match,
+    attributes: {
+      userId,
+      address,
+      birthdate,
+      phone,
+      gender,
+      admin,
+      profile,
+      name,
+      email,
+      ektp,
+    }}) =>
+ {
+    const [data,setData] = useState({
+                tableHead: ['Email', 'DoB', 'Gender', 'Address', 'Phone'],
+                tableData: [email, birthdate, gender, address, phone]
+            });
         return (
             <PaperProvider theme={theme} >
                 <View 
@@ -50,7 +59,7 @@ export default class Profile extends Component {
                         </Text>
                     </View>
                     <Image
-                        source={require('../img/ProfileImage.png')}
+                        source={{uri: profile}}
                         style={{
                             height: '40%',
                             width: '50%',
@@ -67,18 +76,20 @@ export default class Profile extends Component {
                                 fontSize: 15,
                                 alignSelf: 'center',
                             }}>
-                            LMAO
+                            {name && name}
                     </Text>
                     </View>
                     <View style={{ flex: 3, alignItems: 'center', justifyContent: 'center' }}>
                         <Table borderStyle={{ borderWidth: 2, borderColor: 'purple' }} style={{ flexDirection: 'row', width: 300 }}>
-                            <Col data={state.tableHead} textStyle={{ margin: 6, textAlign: 'left' }} heightArr={[30, 30, 30, 30, 30]} />
-                            <Col data={state.tableData} textStyle={{ margin: 6, textAlign: 'right' }} heightArr={[30, 30, 30, 30, 30]} />
+                            <Col data={data.tableHead} textStyle={{ margin: 6, textAlign: 'left' }} heightArr={[30, 30, 30, 30, 30]} />
+                            <Col data={data.tableData} textStyle={{ margin: 6, textAlign: 'right' }} heightArr={[30, 30, 30, 30, 30]} />
                         </Table>
                     </View>
                     <Image
-                        source={require('../img/contohKTP.png')}
+                        source={{uri: ektp}}
                         style={{
+                            height: '40%',
+                            width: '75%',
                             borderColor: 'black',
                             borderWidth: 3,
                             flex: 3,
@@ -87,6 +98,16 @@ export default class Profile extends Component {
                     />
                 </View>
             </PaperProvider>
-        );
+        )
     }
-}
+
+    Profile.propTypes = {
+        attributes: PropTypes.object.isRequired,
+      };
+      
+      const mapStateToProps = (state) => ({
+        attributes: state.auth.attributes,
+      });
+      
+      export default connect(mapStateToProps, {})(Profile);
+      

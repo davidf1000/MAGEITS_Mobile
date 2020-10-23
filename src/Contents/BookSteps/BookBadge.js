@@ -3,8 +3,8 @@ import { render } from 'react-dom';
 import { View, Text, Image } from 'react-native';
 import { DefaultTheme, Provider as PaperProvider, DataTable } from 'react-native-paper';
 import { Table, Col } from 'react-native-table-component';
-// import QRCode from 'react-native-qrcode-svg';
-// import { getBookId } from "../src/actions/api";
+import QRCode from 'react-native-qrcode-svg';
+import { getBookId } from "../../../src/actions/api";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
@@ -18,7 +18,7 @@ const theme = {
     },
 };
 
-const DigitalBadge= ({ route,profile })=> {
+const BookBadge= ({ route,profile })=> {
     const { bookId } = route.params;
     const [form, setForm] = useState({visitee:'',room:'',date:'',session:''});
     const state = {
@@ -84,14 +84,14 @@ const DigitalBadge= ({ route,profile })=> {
                     </Table>
                 </View>
 
-                    {/* <QRCode
+                    <QRCode
       value="http://awesome.link.qr"
-    /> */}
+    />
             </View>
         </PaperProvider>
     );
 }
-DigitalBadge.propTypes = {
+BookBadge.propTypes = {
     profile: PropTypes.string.isRequired,
   };
   
@@ -99,7 +99,7 @@ DigitalBadge.propTypes = {
     profile: state.auth.attributes.profile,
   });
   
-  export default connect(mapStateToProps, {})(DigitalBadge);
+  export default connect(mapStateToProps, {})(BookBadge);
   
                 {/* <Image
                     source={require('./img/QRExample.png')}

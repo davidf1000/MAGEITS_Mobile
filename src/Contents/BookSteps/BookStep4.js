@@ -2,7 +2,12 @@ import React, { useState } from 'react';
 import { DefaultTheme, Provider as PaperProvider, Button } from 'react-native-paper';
 import { Text, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-
+import { connect } from "react-redux";
+import {
+    getAvailableSessions,
+    bookSchedule,
+  } from "../../actions/api";
+import PropTypes from "prop-types";
 const theme = {
     ...DefaultTheme,
     roundness: 2,
@@ -13,10 +18,27 @@ const theme = {
     },
 };
 
-function Book4({route}) {
+function Book4({route,userId, name}) {
     const { visitee, ward, date, session } = route.params;
-    const navigation = useNavigation();
+    const navigation2 = useNavigation();
+    const bookApi = async () =>
+    {
+        const dataSent = {
+            visitor: name,
+            userid: userId,
+            visitee: visitee,
+            room: String(ward),
+            date: date,
+            session: String(session),
+          };
+          console.log(dataSent);
+        const res =await bookSchedule(dataSent);
+        console.log("RESPOND :",res);
 
+        navigation2.navigate('Book Badge', {
+            bookId:res.body
+        } )
+    }
     return (
         <PaperProvider theme={theme}>
             <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
@@ -45,15 +67,10 @@ function Book4({route}) {
                             alignSelf: 'center',
                             margin: '5%'
                         }}>
-                        Here's your digital badge link
+                        Render your digital badge now !
                     </Text>
                     <Text
-                        onPress={() => navigation.navigate('Digital Badge', {
-                            visitee: visitee,
-                            ward: ward,
-                            date: date,
-                            session: session
-                        } )}
+                        onPress={bookApi}
                         style={{
                             textAlign: 'center',
                             fontSize: 15,
@@ -69,4 +86,15 @@ function Book4({route}) {
     );
 }
 
-export default Book4;
+Book4.propTypes = {
+    userId: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+  };
+  
+  const mapStateToProps = (state) => ({
+    userId: state.auth.attributes.userId,
+    name: state.auth.attributes.name,
+  });
+  
+  export default connect(mapStateToProps, {})(Book4);
+  
