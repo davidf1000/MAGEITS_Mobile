@@ -23,10 +23,11 @@ const BookBadge= ({ route,profile })=> {
     const [form, setForm] = useState({visitee:'',room:'',date:'',session:''});
     const state = {
         tableHead: ['Visitee', 'Ward', 'Date', 'Session'],
-        tableData: [form.visitee, form.room, form.date, form.session]
+        tableData: [form.visitee ? form.visitee: '', form.room ? form.room : '', form.date ? form.date : '', form.session ? form.session : '']
     };
     const fetchBook = async () => {
         const res = await getBookId(bookId);
+        console.log("RES",res);
         setForm(res);
       };
       useEffect(() => {
@@ -78,10 +79,11 @@ const BookBadge= ({ route,profile })=> {
                     </Text>
                 </View>
                 <View style={{ flex: 2, alignItems: 'center', justifyContent: 'center', padding: '5%' }}>
-                    <Table borderStyle={{ borderWidth: 2, borderColor: 'purple' }} style={{ flexDirection: 'row', width: 300 }}>
+                    {
+                        <Table borderStyle={{ borderWidth: 2, borderColor: 'purple' }} style={{ flexDirection: 'row', width: 300 }}>
                         <Col data={state.tableHead} textStyle={{ margin: 6, textAlign: 'left' }} heightArr={[30, 30, 30, 30, 30]} />
                         <Col data={state.tableData} textStyle={{ margin: 6, textAlign: 'right' }} heightArr={[30, 30, 30, 30, 30]} />
-                    </Table>
+                    </Table>}
                 </View>
 
                     <QRCode

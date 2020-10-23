@@ -3,8 +3,8 @@ import { render } from 'react-dom';
 import { View, Text, Image } from 'react-native';
 import { DefaultTheme, Provider as PaperProvider, DataTable } from 'react-native-paper';
 import { Table, Col } from 'react-native-table-component';
-// import QRCode from 'react-native-qrcode-svg';
-// import { getBookId } from "../src/actions/api";
+import QRCode from 'react-native-qrcode-svg';
+import { getBookId } from "../actions/api";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
@@ -13,25 +13,28 @@ const theme = {
     roundness: 2,
     colors: {
         ...DefaultTheme.colors,
-        primary: '#4b6ed6',
+        primary: 'yellow',
         accent: 'purple',
     },
 };
 
-const DigitalBadge= ({ route,profile })=> {
+const HistoryBadge= ({ route,profile })=> {
     const { bookId } = route.params;
     const [form, setForm] = useState({visitee:'',room:'',date:'',session:''});
     const state = {
         tableHead: ['Visitee', 'Ward', 'Date', 'Session'],
-        tableData: [form.visitee, form.room, form.date, form.session]
+        tableData: [form.visitee ? form.visitee: '', form.room ? form.room : '', form.date ? form.date : '', form.session ? form.session : '']
     };
     const fetchBook = async () => {
         const res = await getBookId(bookId);
+        console.log("RES",res);
         setForm(res);
       };
       useEffect(() => {
         fetchBook();
       }, []);
+    
+
     return (
         <PaperProvider theme={theme} >
             <View
@@ -78,20 +81,21 @@ const DigitalBadge= ({ route,profile })=> {
                     </Text>
                 </View>
                 <View style={{ flex: 2, alignItems: 'center', justifyContent: 'center', padding: '5%' }}>
-                    <Table borderStyle={{ borderWidth: 2, borderColor: 'purple' }} style={{ flexDirection: 'row', width: 300 }}>
+                    {
+                        <Table borderStyle={{ borderWidth: 2, borderColor: 'purple' }} style={{ flexDirection: 'row', width: 300 }}>
                         <Col data={state.tableHead} textStyle={{ margin: 6, textAlign: 'left' }} heightArr={[30, 30, 30, 30, 30]} />
                         <Col data={state.tableData} textStyle={{ margin: 6, textAlign: 'right' }} heightArr={[30, 30, 30, 30, 30]} />
-                    </Table>
+                    </Table>}
                 </View>
 
-                    {/* <QRCode
+                    <QRCode
       value="http://awesome.link.qr"
-    /> */}
+    />
             </View>
         </PaperProvider>
     );
 }
-DigitalBadge.propTypes = {
+HistoryBadge.propTypes = {
     profile: PropTypes.string.isRequired,
   };
   
@@ -99,7 +103,7 @@ DigitalBadge.propTypes = {
     profile: state.auth.attributes.profile,
   });
   
-  export default connect(mapStateToProps, {})(DigitalBadge);
+  export default connect(mapStateToProps, {})(HistoryBadge);
   
                 {/* <Image
                     source={require('./img/QRExample.png')}

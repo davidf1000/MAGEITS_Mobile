@@ -1,63 +1,61 @@
-import React, { useState } from 'react';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Ionicons } from '@expo/vector-icons';
-import { DefaultTheme, Provider as PaperProvider, Text } from 'react-native-paper';
-import Home from './Contents/Home';
-import Book from './Contents/Book';
-import History from './Contents/History';
-import Profile from './Contents/Profile';
+import React, { useState } from "react";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { Ionicons } from "@expo/vector-icons";
+import {
+  DefaultTheme,
+  Provider as PaperProvider,
+  Text,
+} from "react-native-paper";
+import Home from "./Contents/Home";
+import Book from "./Contents/Book";
+import History from "./Contents/History";
+import Profile from "./Contents/Profile";
 
 const theme = {
-    ...DefaultTheme,
-    roundness: 2,
-    colors: {
-        ...DefaultTheme.colors,
-        primary: 'purple',
-        accent: 'yellow',
-    },
+  ...DefaultTheme,
+  roundness: 4,
+  colors: {
+    ...DefaultTheme.colors,
+    primary: "#4b6ed6",
+    accent: "yellow",
+  },
 };
 
 const Tab = createBottomTabNavigator();
 
 function HomePage({ navigation }) {
-    return (
-        <PaperProvider theme={theme}>
-            <Tab.Navigator
-                screenOptions={({ route }) => ({
-                    tabBarIcon: ({ focused, color, size }) => {
-                        let iconName;
+  return (
+    <PaperProvider theme={theme}>
+      <Tab.Navigator
+        screenOptions={({ route }) => ({
+          tabBarIcon: ({ focused, color, size }) => {
+            let iconName;
 
-                        if (route.name === 'Home') {
-                            iconName = focused
-                                ? 'ios-home'
-                                : 'ios-home';
-                        } else
-                            if (route.name === 'Book') {
-                                iconName = focused ? 'ios-book' : 'ios-book';
-                            }
-                            else 
-                            if (route.name === 'History') {
-                                iconName = focused ? 'ios-clock' : 'ios-clock';
-                            }
-                            else 
-                            if (route.name === 'Profile') {
-                                iconName = focused ? 'ios-person' : 'ios-person';
-                            }
-                        return <Ionicons name={iconName} size={size} color={color} />;
-                    },
-                })}
-                tabBarOptions={{
-                    activeTintColor: 'white',
-                    inactiveTintColor: 'gray',
-                    style:{backgroundColor: 'purple'} 
-                }}>
-                <Tab.Screen name="Home" component={Home} />
-                <Tab.Screen name="Book" component={Book} />
-                <Tab.Screen name="History" component={History} />
-                <Tab.Screen name="Profile" component={Profile} />
-            </Tab.Navigator>
-        </PaperProvider >
-    );
+            if (route.name === "Home") {
+              iconName = focused ? "ios-home" : "ios-home";
+            } else if (route.name === "Book") {
+              iconName = focused ? "ios-book" : "ios-book";
+            } else if (route.name === "History") {
+              iconName = focused ? "ios-clock" : "ios-clock";
+            } else if (route.name === "Profile") {
+              iconName = focused ? "ios-person" : "ios-person";
+            }
+            return <Ionicons name={iconName} size={size} color={color} />;
+          },
+        })}
+        tabBarOptions={{
+          activeTintColor: "#4b6ed6",
+          inactiveTintColor: "gray",
+        //   style: { size:20 },
+        }}
+      >
+        <Tab.Screen name="Home" component={Home} />
+        <Tab.Screen name="Book" component={Book} />
+        <Tab.Screen name="History" component={History} />
+        <Tab.Screen name="Profile" component={Profile} />
+      </Tab.Navigator>
+    </PaperProvider>
+  );
 }
 
 export default HomePage;
