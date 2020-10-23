@@ -13,17 +13,17 @@ const theme = {
   roundness: 2,
   colors: {
     ...DefaultTheme.colors,
-    primary: "#4b6ed6",
+    primary: "purple",
     accent: "yellow",
   },
 };
 
-function LoginPage({ navigation }) {
+function LoadingBook({ navigation }) {
     const [loading,setLoading]=useState(true);
     useEffect(()=>{
         const fetchHistory=  ()=>{
             setLoading(false);
-            navigation.navigate("Home")
+            navigation.navigate("Step 4")
         }
         // Tunggu 5 detik abis itu navigate home
         const interval = setInterval(fetchHistory,3000);
@@ -33,7 +33,7 @@ function LoginPage({ navigation }) {
     <PaperProvider theme={theme}>
       <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
         <Image
-          source={require("./img/logo.png")}
+          source={require("./../../img/logo.png")}
           style={{
             alignSelf: "center",
             marginTop: "30%",
@@ -56,6 +56,6 @@ function LoginPage({ navigation }) {
   );
 }
 
-export default LoginPage;
+export default LoadingBook;
 
-// export default LoginPage;
+// export default LoadingBook;

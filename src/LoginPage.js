@@ -6,6 +6,7 @@ import {
   Button,
   TextInput,
 } from "react-native-paper";
+import * as Font from "expo-font";
 
 //Redux
 import { connect } from "react-redux";
@@ -15,8 +16,8 @@ const theme = {
   roundness: 2,
   colors: {
     ...DefaultTheme.colors,
-    primary: "purple",
-    accent: "yellow",
+    primary: "#4b6ed6",
+    accent: "black",
   },
 };
 
@@ -36,8 +37,14 @@ function LoginPage({
     // await loginCognito(email, password);
     // Biar cepet debugnya
     await loginCognito("admin@gmail.com", "Admin123");
-    navigation.navigate('Loading Page')
+    navigation.navigate("Loading Page");
   };
+  const [loaded] = useFonts({
+    Montserrat: require("./assets/fonts/Montserrat.ttf"),
+  });
+  if (!loaded) {
+    return null;
+  }
   return (
     <PaperProvider theme={theme}>
       <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>

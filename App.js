@@ -11,6 +11,7 @@ import RegisterStep4 from './src/RegisterPage/RegisterStep4'
 import ForgotStep1 from './src/ForgotPage/ForgotStep1'
 import ForgotStep2 from './src/ForgotPage/ForgotStep2'
 import LoadingPage from './src/LoadingPage';
+import HistoryBadge from './src/Contents/HistoryBadge';
 //Redux
 import { Provider as ProviderRedux } from 'react-redux';
 import store from './store';
@@ -41,13 +42,14 @@ export default function App() {
   return (
     <ProviderRedux store={store}>
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator headerMode='none'>
         <Stack.Screen name="Inviso" component={LoginPage} />
         <Stack.Screen name="Home" component={HomePage} />
         <Stack.Screen name="Register Account" component={Register} />
         <Stack.Screen name="Forgot Password" component={ForgotPassword} />
         <Stack.Screen name="Digital Badge" component={DigitalBadge} />
         <Stack.Screen name="Loading Page" component={LoadingPage} />
+        <Stack.Screen name="History Badge" component={HistoryBadge} />
       </Stack.Navigator>
     </NavigationContainer>
     </ProviderRedux>
