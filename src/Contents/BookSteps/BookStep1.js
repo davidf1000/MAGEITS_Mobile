@@ -17,7 +17,7 @@ const theme = {
     },
 };
 
-const labels = ["Step 1", "Step 2", "Step 3", "Step 4"];
+const labels = ["Pick\nschedule", "Select\nsession", "Confirmation", "Digital\nBadge"];
 const customStyles = {
     stepIndicatorSize: 25,
     currentStepIndicatorSize: 30,
@@ -44,6 +44,7 @@ const customStyles = {
 
 
 function Book1({ naviagation }) {
+    const dateNow= new Date(Date.now());
     const navigation = useNavigation();
     const [visitee, setVisitee] = useState('');
     const [ward, setWard] = useState('');
@@ -78,7 +79,7 @@ function Book1({ naviagation }) {
                     <TextInput
                         label="Visitee's name"
                         value={visitee}
-                        onChangeText={visitee => setVisitee(visitee)}
+                        onChangeText={visitee => setVisitee(visitee.toLowerCase())}
                         style={{
                             alignSelf: 'center',
                             marginBottom: '5%',
@@ -122,8 +123,8 @@ function Book1({ naviagation }) {
                         mode="date"
                         placeholder="select date"
                         format="YYYY-MM-DD"
-                        minDate="2016-05-01"
-                        maxDate="2016-06-01"
+                        minDate={dateNow}
+                        maxDate="2021-05-01"
                         confirmBtnText="Confirm"
                         cancelBtnText="Cancel"
                         customStyles={{

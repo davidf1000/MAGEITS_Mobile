@@ -1,5 +1,5 @@
 import React, { useState,useEffect } from "react";
-import { View, Image, Text } from "react-native";
+import { View, Image, Text, ActivityIndicator } from "react-native";
 import {
   DefaultTheme,
   Provider as PaperProvider,
@@ -42,13 +42,14 @@ function LoginPage({ navigation }) {
         />
         <Text
           style={{
-            fontSize: 20,
+            fontSize: 25,
             marginBottom: "5%",
             fontFamily: 'robotoRegular'
           }}
         >
           Welcome Back
         </Text>
+        <ActivityIndicator style={{marginTop:80}} size="large" color="#4b6ed6" />
       </View>
     </PaperProvider>
   );

@@ -16,7 +16,8 @@ const theme = {
 
 const { width, height } = Dimensions.get('window');
 
-const labels = ["Step 1", "Step 2", "Step 3", "Step 4"];
+const labels = ["Pick\nschedule", "Select\nsession", "Confirmation", "Digital\nBadge"];
+
 const customStyles = {
     stepIndicatorSize: 25,
     currentStepIndicatorSize: 30,
