@@ -1,9 +1,14 @@
 import React, { Component, useState, useEffect } from "react";
-import { Text, StyleSheet, View, ScrollView,TouchableOpacity } from "react-native";
+import { Text, StyleSheet, View, ScrollView,TouchableOpacity,ActivityIndicator } from "react-native";
 import { Table, Row } from "react-native-table-component";
 import { getHistory } from "../../actions/api";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+
+
+const dateFormatter = (date)=>{
+  return date.substring(0,4)+'-'+date.substring(5,7)+'-'+date.substring(8,10);
+}
 
 const History = ({
   match,
@@ -21,10 +26,11 @@ const History = ({
   },
   navigation,
 }) => {
+  const [loaded,setLoaded]= useState(false);
   const [data, setData] = useState({
     myArray: [],
-    tableHead: ["Date", "Checkin", "Session", "Details"],
-    widthArr: [100, 50, 20, 150],
+    tableHead: ["Date", "Session", "Badge"],
+    widthArr: [105, 90, 150],
   });
 
   useEffect(() => {
@@ -43,6 +49,7 @@ const History = ({
       }));
       console.log(resNew);
       setData({ ...data, myArray: resNew });
+      setLoaded(true);
     };
     fetchHistory();
   }, []);
@@ -70,7 +77,7 @@ const History = ({
   const renderButton = (data)=>
         (
         <TouchableOpacity onPress={() => onLinkClick(data)}>
-        <View style={{marginLeft: 25, width: 100, height: 25, backgroundColor: '#78B7BB',  borderRadius: 2, justifyContent:'center'}}>
+        <View style={{marginLeft: 25, width: 100, height: 25, backgroundColor: '#1CC88A',  borderRadius: 2, justifyContent:'center'}}>
           <Text style={{textAlign: 'center', color: '#fff', fontFamily: 'robotoRegular'}}>Click Here</Text>
         </View>
       </TouchableOpacity>
@@ -81,20 +88,30 @@ const History = ({
   return (
     <View style={styles1.container}>
       <View>
+      <Text
+                        style={{
+                            fontSize: 30,
+                            alignSelf: 'center',
+                            marginTop: '20%',
+                            marginBottom: 20,
+                            fontFamily: 'robotoRegular',
+                        }}>
+                        History
+                    </Text>
+                    { loaded ? <View>
         <Table borderStyle={{ borderWidth: 1, borderColor: "black" }}>
           <Row
             data={data.tableHead}
             widthArr={data.widthArr}
             style={styles1.header}
-            textStyle={styles1.text}
+            textStyle={{...styles1.text,color:'white',fontSize:20}}
           />
         </Table>
         <ScrollView style={styles1.dataWrapper}>
           <Table borderStyle={{ borderWidth: 1, borderColor: "black" }}>
             {data.myArray
               .map((record) => [
-                record.date,
-                record.checkin,
+                dateFormatter(String(record.date)),
                 record.session,
                 renderButton(record.id),
               ])
@@ -112,6 +129,9 @@ const History = ({
               ))}
           </Table>
         </ScrollView>
+        </View> : 
+        <ActivityIndicator style={{marginTop:10}} size="large" color="#4b6ed6" />
+        }
       </View>
     </View>
   );
@@ -126,7 +146,7 @@ const styles1 = StyleSheet.create({
     alignItems: "center",
   },
   header: { height: 50, backgroundColor: "#4b6ed6", fontFamily: 'robotoRegular' },
-  text: { textAlign: "center", fontFamily: 'robotoRegular' },
+  text: { textAlign: "center", fontFamily: 'robotoRegular',fontSize:16 },
   dataWrapper: { marginTop: -1 },
   row: { height: 40 },
 });

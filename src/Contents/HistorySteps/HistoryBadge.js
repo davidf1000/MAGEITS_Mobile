@@ -37,6 +37,7 @@ const HistoryBadge = ({ route, profile, navigation: { goBack } }) => {
 
     return (
         <PaperProvider theme={theme} >
+
             <View
                 style={{
                     flex: 1,

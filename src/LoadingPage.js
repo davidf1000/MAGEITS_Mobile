@@ -8,6 +8,9 @@ import {
 } from "react-native-paper";
 
 //Redux
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+
 const theme = {
   ...DefaultTheme,
   roundness: 2,
@@ -18,7 +21,7 @@ const theme = {
   },
 };
 
-function LoginPage({ navigation }) {
+function LoadingPage({ navigation,auth }) {
     const [loading,setLoading]=useState(true);
     useEffect(()=>{
         const fetchHistory=  ()=>{
@@ -44,17 +47,23 @@ function LoginPage({ navigation }) {
           style={{
             fontSize: 25,
             marginBottom: "5%",
-            fontFamily: 'robotoRegular'
+            fontFamily: 'robotoRegular',
+            textAlign:'center'
           }}
         >
-          Welcome Back
+          Welcome Back,{'\n\n'}
+          {auth && auth.user && auth.user.name}
         </Text>
-        <ActivityIndicator style={{marginTop:80}} size="large" color="#4b6ed6" />
+        <ActivityIndicator style={{marginTop:10}} size="large" color="#4b6ed6" />
       </View>
     </PaperProvider>
   );
 }
+// LoadingPage.propTypes = {
+//   name: PropTypes.string.isRequired
+// };
+const mapStateToProps = (state) => ({
+  auth : state.auth
+});
 
-export default LoginPage;
-
-// export default LoginPage;
+export default connect(mapStateToProps, {})(LoadingPage);
