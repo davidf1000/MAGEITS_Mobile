@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { DefaultTheme, Provider as PaperProvider, Button } from 'react-native-paper';
-import { Text, View } from 'react-native';
+import { Text, View, Dimensions } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { connect } from "react-redux";
 import {
@@ -8,6 +8,8 @@ import {
     bookSchedule,
   } from "../../actions/api";
 import PropTypes from "prop-types";
+import StepIndicator from 'react-native-step-indicator';
+
 const theme = {
     ...DefaultTheme,
     roundness: 2,
@@ -17,6 +19,33 @@ const theme = {
         accent: 'yellow',
     },
 };
+
+const { width, height } = Dimensions.get('window');
+
+const labels = ["Step 1", "Step 2", "Step 3", "Step 4"];
+const customStyles = {
+    stepIndicatorSize: 25,
+    currentStepIndicatorSize: 30,
+    separatorStrokeWidth: 2,
+    currentStepStrokeWidth: 3,
+    stepStrokeCurrentColor: '#4b6ed6',
+    stepStrokeWidth: 3,
+    stepStrokeFinishedColor: '#4b6ed6',
+    stepStrokeUnFinishedColor: '#aaaaaa',
+    separatorFinishedColor: '#4b6ed6',
+    separatorUnFinishedColor: '#aaaaaa',
+    stepIndicatorFinishedColor: '#4b6ed6',
+    stepIndicatorUnFinishedColor: '#ffffff',
+    stepIndicatorCurrentColor: '#ffffff',
+    stepIndicatorLabelFontSize: 13,
+    currentStepIndicatorLabelFontSize: 13,
+    stepIndicatorLabelCurrentColor: '#4b6ed6',
+    stepIndicatorLabelFinishedColor: '#ffffff',
+    stepIndicatorLabelUnFinishedColor: '#aaaaaa',
+    labelColor: '#999999',
+    labelSize: 13,
+    currentStepLabelColor: '#4b6ed6'
+}
 
 function Book4({route,userId, name}) {
     const { visitee, ward, date, session } = route.params;
@@ -43,29 +72,27 @@ function Book4({route,userId, name}) {
         <PaperProvider theme={theme}>
             <View style={{ flex: 2, alignItems: 'center', justifyContent: 'center' }}>
                 <View style={{ flex: 2, alignItems: 'center', justifyContent: 'center', marginTop: '10%', marginBottom: '5%' }}>
-                    <Text
+                <Text
                         style={{
                             fontSize: 30,
                             alignSelf: 'center',
                             marginTop: '10%',
                             marginBottom: '5%',
-                            fontFamily: 'robotoRegular'
+                            fontFamily: 'robotoRegular',
+                            flex: 1
                         }}>
                         Book a Visit
                     </Text>
-                    <View style={{ flex:1, padding: 2, alignItems:'center', flexDirection:'row', width:'80%', marginBottom: '5%', borderRadius: 20, borderColor:'black', borderWidth: 2, overflow: 'hidden'}}>
-                        <View style={{flex: 4, backgroundColor: '#4b6ed6', aspectRatio:2 }} />
-                        <View style={{flex: 0, aspectRatio:2}} />
+                    <View style={{ flex: 1, marginBottom: '5%' }}>
+                        <View style={{ width: width - 20 }}>
+                            <StepIndicator
+                                customStyles={customStyles}
+                                currentPosition={3}
+                                labels={labels}
+                                stepCount={4}
+                            />
+                        </View>
                     </View>
-                    <Text
-                        style={{
-                            fontSize: 20,
-                            alignSelf: 'center',
-                            marginBottom: '20%',
-                            fontFamily: 'robotoRegular'
-                        }}>
-                        Step 4
-                    </Text>
                 </View>
                 <View style={{ flex: 5, alignItems: 'center', justifyContent: 'flex-start', margin: '5%' }}>
                     <Text

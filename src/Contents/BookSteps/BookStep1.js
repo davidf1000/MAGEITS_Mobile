@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
-import { DefaultTheme, Provider as PaperProvider, Button, TextInput,ProgressBar, Colors} from 'react-native-paper';
-import { Text, View } from 'react-native';
+import { DefaultTheme, Provider as PaperProvider, Button, TextInput } from 'react-native-paper';
+import { Text, View, Dimensions } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import DatePicker from 'react-native-datepicker'
+import StepIndicator from 'react-native-step-indicator';
+
+const { width, height } = Dimensions.get('window');
+
 const theme = {
     ...DefaultTheme,
     roundness: 2,
@@ -13,7 +17,33 @@ const theme = {
     },
 };
 
-function Book1({naviagation}) {
+const labels = ["Step 1", "Step 2", "Step 3", "Step 4"];
+const customStyles = {
+    stepIndicatorSize: 25,
+    currentStepIndicatorSize: 30,
+    separatorStrokeWidth: 2,
+    currentStepStrokeWidth: 3,
+    stepStrokeCurrentColor: '#4b6ed6',
+    stepStrokeWidth: 3,
+    stepStrokeFinishedColor: '#4b6ed6',
+    stepStrokeUnFinishedColor: '#aaaaaa',
+    separatorFinishedColor: '#4b6ed6',
+    separatorUnFinishedColor: '#aaaaaa',
+    stepIndicatorFinishedColor: '#4b6ed6',
+    stepIndicatorUnFinishedColor: '#ffffff',
+    stepIndicatorCurrentColor: '#ffffff',
+    stepIndicatorLabelFontSize: 13,
+    currentStepIndicatorLabelFontSize: 13,
+    stepIndicatorLabelCurrentColor: '#4b6ed6',
+    stepIndicatorLabelFinishedColor: '#ffffff',
+    stepIndicatorLabelUnFinishedColor: '#aaaaaa',
+    labelColor: '#999999',
+    labelSize: 13,
+    currentStepLabelColor: '#4b6ed6'
+}
+
+
+function Book1({ naviagation }) {
     const navigation = useNavigation();
     const [visitee, setVisitee] = useState('');
     const [ward, setWard] = useState('');
@@ -21,30 +51,28 @@ function Book1({naviagation}) {
     return (
         <PaperProvider theme={theme}>
             <View style={{ flex: 2, alignItems: 'center', justifyContent: 'center' }}>
-                <View style={{ flex: 2, alignItems: 'center', justifyContent: 'center', marginTop: '10%', marginBottom: '5%' }}>
+                <View style={{ flex: 2, alignItems: 'center', justifyContent: 'center', marginTop: '5%', marginBottom: '5%' }}>
                     <Text
                         style={{
                             fontSize: 30,
                             alignSelf: 'center',
                             marginTop: '10%',
                             marginBottom: '5%',
-                            fontFamily: 'robotoRegular'
+                            fontFamily: 'robotoRegular',
+                            flex: 1
                         }}>
                         Book a Visit
                     </Text>
-                    <View style={{ flex:1, padding: 2, alignItems:'center', flexDirection:'row', width:'80%', marginBottom: '5%', borderRadius: 20, borderColor:'black', borderWidth: 2, overflow: 'hidden'}}>
-                        <View style={{flex: 1, backgroundColor: '#4b6ed6', aspectRatio:2 }} />
-                        <View style={{flex: 3, aspectRatio:2}} />
+                    <View style={{ flex: 1, marginBottom: '5%' }}>
+                        <View style={{ width: width - 20 }}>
+                            <StepIndicator
+                                customStyles={customStyles}
+                                currentPosition={0}
+                                labels={labels}
+                                stepCount={4}
+                            />
+                        </View>
                     </View>
-                    <Text
-                        style={{
-                            fontSize: 20,
-                            alignSelf: 'center',
-                            marginBottom: '20%',
-                            fontFamily: 'robotoRegular'
-                        }}>
-                        Step 1
-            </Text>
                 </View>
                 <View style={{ flex: 4, alignItems: 'center', justifyContent: 'flex-start', margin: '5%' }}>
                     <TextInput
@@ -88,38 +116,40 @@ function Book1({naviagation}) {
                             fontFamily: 'robotoRegular'
                         }}
                     />
-      <DatePicker
-        style={{width: 200}}
-        date={date}
-        mode="date"
-        placeholder="select date"
-        format="YYYY-MM-DD"
-        minDate="2016-05-01"
-        maxDate="2016-06-01"
-        confirmBtnText="Confirm"
-        cancelBtnText="Cancel"
-        customStyles={{
-          dateIcon: {
-            position: 'absolute',
-            left: 0,
-            top: 4,
-            marginLeft: 0
-          },
-          dateInput: {
-            marginLeft: 36
-          }
-        }}
-        onDateChange={date => setDate(date)}
-      />
+                    <DatePicker
+                        style={{ width: 200 }}
+                        date={date}
+                        mode="date"
+                        placeholder="select date"
+                        format="YYYY-MM-DD"
+                        minDate="2016-05-01"
+                        maxDate="2016-06-01"
+                        confirmBtnText="Confirm"
+                        cancelBtnText="Cancel"
+                        customStyles={{
+                            dateIcon: {
+                                position: 'absolute',
+                                left: 0,
+                                top: 4,
+                                marginLeft: 0
+                            },
+                            dateInput: {
+                                marginLeft: 36
+                            }
+                        }}
+                        onDateChange={date => setDate(date)}
+                    />
                 </View>
                 <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center', marginTop: '10%', marginBottom: '5%' }}>
                     <Button
                         mode="contained"
-                        onPress={() => { navigation.navigate('Step 2',{
-                            visitee: visitee,
-                            ward: ward,
-                            date: date
-                        }) }}
+                        onPress={() => {
+                            navigation.navigate('Step 2', {
+                                visitee: visitee,
+                                ward: ward,
+                                date: date
+                            })
+                        }}
                         theme={{ roundness: 10 }}
                         style={{
                             width: 100,

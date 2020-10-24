@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { DefaultTheme, Provider as PaperProvider, Button, RadioButton } from 'react-native-paper';
-import { Text, View } from 'react-native';
+import { Text, View, Dimensions } from 'react-native';
 import {
     getAvailableSessions,
 } from "../../actions/api";
+import StepIndicator from 'react-native-step-indicator';
+
 const theme = {
     ...DefaultTheme,
     roundness: 2,
@@ -13,6 +15,33 @@ const theme = {
         accent: 'black',
     },
 };
+
+const { width, height } = Dimensions.get('window');
+
+const labels = ["Step 1", "Step 2", "Step 3", "Step 4"];
+const customStyles = {
+    stepIndicatorSize: 25,
+    currentStepIndicatorSize: 30,
+    separatorStrokeWidth: 2,
+    currentStepStrokeWidth: 3,
+    stepStrokeCurrentColor: '#4b6ed6',
+    stepStrokeWidth: 3,
+    stepStrokeFinishedColor: '#4b6ed6',
+    stepStrokeUnFinishedColor: '#aaaaaa',
+    separatorFinishedColor: '#4b6ed6',
+    separatorUnFinishedColor: '#aaaaaa',
+    stepIndicatorFinishedColor: '#4b6ed6',
+    stepIndicatorUnFinishedColor: '#ffffff',
+    stepIndicatorCurrentColor: '#ffffff',
+    stepIndicatorLabelFontSize: 13,
+    currentStepIndicatorLabelFontSize: 13,
+    stepIndicatorLabelCurrentColor: '#4b6ed6',
+    stepIndicatorLabelFinishedColor: '#ffffff',
+    stepIndicatorLabelUnFinishedColor: '#aaaaaa',
+    labelColor: '#999999',
+    labelSize: 13,
+    currentStepLabelColor: '#4b6ed6'
+}
 
 function Book2({ route, navigation }) {
     const { visitee, ward, date } = route.params;
@@ -37,29 +66,26 @@ function Book2({ route, navigation }) {
                             alignSelf: 'center',
                             marginTop: '10%',
                             marginBottom: '5%',
-                            fontFamily: 'robotoRegular'
+                            fontFamily: 'robotoRegular',
+                            flex: 1
                         }}>
                         Book a Visit
                     </Text>
-                    <View style={{ flex:1, padding: 2, alignItems:'center', flexDirection:'row', width:'80%', marginBottom: '5%', borderRadius: 20, borderColor:'black', borderWidth: 2, overflow: 'hidden'}}>
-                        <View style={{flex: 2, backgroundColor: '#4b6ed6', aspectRatio:2 }} />
-                        <View style={{flex: 2, aspectRatio:2}} />
+                    <View style={{ flex: 1, marginBottom: '5%' }}>
+                        <View style={{ width: width - 20 }}>
+                            <StepIndicator
+                                customStyles={customStyles}
+                                currentPosition={1}
+                                labels={labels}
+                                stepCount={4}
+                            />
+                        </View>
                     </View>
-                    <Text
-                        style={{
-                            fontSize: 20,
-                            alignSelf: 'center',
-                            marginBottom: '20%',
-                            fontFamily: 'robotoRegular'
-                        }}>
-                        Step 2
-                    </Text>
-                </View>
+                </View> 
                 <View style={{ flex: 4, alignItems: 'center', justifyContent: 'flex-start', margin: '5%' }}>
-
                     {sessions.map((x, i) => (
                         <View style={{ flexDirection: 'row' }} key={i}>
-                            <Text style={{fontFamily: 'robotoRegular'}}>{`Session ${i + 1
+                            <Text style={{ fontFamily: 'robotoRegular' }}>{`Session ${i + 1
                                 } (${x.session_from.substring(
                                     0,
                                     5
