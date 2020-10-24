@@ -198,7 +198,7 @@ function Home({ navigation }) {
             </View>
             <View style={{ flex: 2.2, alignItems: 'center', justifyContent: 'center', width: '100%' }}>
                 <View style={{ backgroundColor: '#fff', flex: 1, marginTop: '4%', width: '100%' }}>
-                    <CardList cards={cards} useNativeDriver={true} />
+                    <CardList cards={cards} />
                 </View>
             </View>
         </View>
