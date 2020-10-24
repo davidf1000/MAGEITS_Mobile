@@ -112,7 +112,7 @@ function Book2({ route, navigation }) {
                 Book a Visit
           </Text>
               <View style={{ flex: 1, marginBottom: "5%" }}>
-                <View style={{ width: width - 20 }}>
+                <View style={{ width: width - 10, paddingLeft: 20, paddingRight: 20 }}>
                   <StepIndicator
                     customStyles={customStyles}
                     currentPosition={1}
