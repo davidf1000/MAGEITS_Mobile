@@ -22,6 +22,8 @@ const BookBadge= ({ route,profile })=> {
     const [loaded,setLoaded]= useState(false);
     const { bookId } = route.params;
     const [form, setForm] = useState({visitee:'',room:'',date:'',session:''});
+    const [qr,setQr]= useState("dni12udh17ashd");
+    const [visitor,setVisitor]= useState("");
     const state = {
         tableHead: ['Visitee', 'Ward', 'Date', 'Session'],
         tableData: [form.visitee ? form.visitee: '', form.room ? form.room : '', form.date ? form.date : '', form.session ? form.session : '']
@@ -30,6 +32,8 @@ const BookBadge= ({ route,profile })=> {
         const res = await getBookId(bookId);
         console.log("RES",res);
         setForm(res);
+        setQr(res.id);
+        setVisitor(res.visitor);
         setLoaded(true);
       };
       useEffect(() => {
@@ -45,7 +49,7 @@ const BookBadge= ({ route,profile })=> {
                     flexDirection: 'column',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    marginTop: '5%',
+                    marginTop: '10%',
                     marginBottom: '5%',
                     marginLeft: '10%',
                     marginRight: '10%'
@@ -54,9 +58,9 @@ const BookBadge= ({ route,profile })=> {
                 <View style={{ flex: 1 }}>
                     <Text
                         style={{
-                            fontSize: 20,
+                            fontSize: 25,
                             alignSelf: 'center',
-                            fontFamily: 'robotoRegular'
+                            fontFamily: 'robotoRegular',
                         }}>
                         Digital Badge
                     </Text>
@@ -64,8 +68,7 @@ const BookBadge= ({ route,profile })=> {
                 <Image
                     source={{uri:profile}}
                     style={{
-                        height: '35%',
-                        width: '40%',
+                        width: 150,
                         borderRadius: 400 / 2,
                         overflow: 'hidden',
                         borderColor: 'black',
@@ -77,17 +80,18 @@ const BookBadge= ({ route,profile })=> {
                 <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
                     <Text
                         style={{
-                            fontSize: 15,
+                            fontSize: 25,
                             alignSelf: 'center',
                             fontFamily: 'robotoRegular'
                         }}>
-                        LMAO
+                        {visitor&& visitor}
+
                     </Text>
                 </View>
-{ loaded ?                <View style={{ flex: 2, alignItems: 'center', justifyContent: 'center', padding: '5%' }}>
-                        <Table borderStyle={{ borderWidth: 2, borderColor: 'purple' }} style={{ flexDirection: 'row', width: 300 }}>
-                        <Col data={state.tableHead} textStyle={{ margin: 6, textAlign: 'left', fontFamily: 'robotoRegular' }} heightArr={[30, 30, 30, 30, 30]} />
-                        <Col data={state.tableData} textStyle={{ margin: 6, textAlign: 'right', fontFamily: 'robotoRegular' }} heightArr={[30, 30, 30, 30, 30]} />
+{ loaded ?                <View style={{ flex: 2, alignItems: 'center', justifyContent: 'center', padding: '15%'}}>
+                        <Table borderStyle={{ borderWidth: 2, borderColor: '#4b6ed6' }} style={{ flexDirection: 'row', width: 300 }}>
+                        <Col data={state.tableHead} textStyle={{ margin: 6, textAlign: 'left', fontFamily: 'robotoRegular',fontSize:18 }} heightArr={[40,40,40,40,40]} />
+                        <Col data={state.tableData} textStyle={{ margin: 6, textAlign: 'right', fontFamily: 'robotoRegular',fontSize:18 }} heightArr={[40,40,40,40,40]} />
                     </Table>
                 </View>:
         <ActivityIndicator style={{marginTop:10}} size="large" color="#4b6ed6" />
@@ -95,7 +99,8 @@ const BookBadge= ({ route,profile })=> {
                 }
 
                     <QRCode
-      value="http://awesome.link.qr"
+                    value={qr}
+                    size={185}
     />
             </View>
         </PaperProvider>

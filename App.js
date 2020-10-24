@@ -3,7 +3,6 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import LoginPage from './src/LoginPage';
 import HomePage from './src/HomePage';
-import DigitalBadge from './src/DigitalBadge';
 import RegisterStep1 from './src/RegisterPage/RegisterStep1';
 import RegisterStep2 from './src/RegisterPage/RegisterStep2';
 import RegisterStep3 from './src/RegisterPage/RegisterStep3';
@@ -11,7 +10,6 @@ import RegisterStep4 from './src/RegisterPage/RegisterStep4';
 import ForgotStep1 from './src/ForgotPage/ForgotStep1';
 import ForgotStep2 from './src/ForgotPage/ForgotStep2';
 import LoadingPage from './src/LoadingPage';
-import HistoryBadge from './src/Contents/HistoryBadge';
 //Redux
 import { Provider as ProviderRedux } from 'react-redux';
 import store from './store';
@@ -102,9 +100,7 @@ export default function App() {
         <Stack.Screen name="Home" component={HomePage} />
         <Stack.Screen name="Register Account" component={Register} />
         <Stack.Screen name="Forgot Password" component={ForgotPassword} />
-        <Stack.Screen name="Digital Badge" component={DigitalBadge} />
         <Stack.Screen name="Loading Page" component={LoadingPage} />
-        <Stack.Screen name="History Badge" component={HistoryBadge} />
       </Stack.Navigator>
     </NavigationContainer>
     </ProviderRedux>
