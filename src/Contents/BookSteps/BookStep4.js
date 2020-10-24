@@ -76,86 +76,109 @@ function Book4({ route, userId, name }) {
   };
   return (
     <PaperProvider theme={theme}>
-      <View style={{ flex: 2, alignItems: "center", justifyContent: "center" }}>
+      <View style={{ flex: 1, backgroundColor: '#4b6ed6', paddingTop: 10, paddingLeft: 1, paddingRight: 1, paddingBottom: 10 }}>
         <View
           style={{
-            flex: 2,
-            alignItems: "center",
-            justifyContent: "center",
-            marginTop: "10%",
-            marginBottom: "5%",
+            flex: 1,
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            marginTop: '5%',
+            marginBottom: '2%',
+            marginLeft: '10%',
+            marginRight: '10%',
+            borderRadius: 20,
+            backgroundColor: '#fff',
+            padding: 5,
+            shadowColor: '#000',
+            shadowOffset: { width: 0, height: 2 },
+            shadowOpacity: 0.5,
+            shadowRadius: 2,
+            elevation: 2,
           }}
         >
-          <Text
-            style={{
-              fontSize: 30,
-              alignSelf: "center",
-              marginTop: "10%",
-              marginBottom: "5%",
-              fontFamily: "robotoRegular",
-              flex: 1,
-            }}
-          >
-            Book a Visit
+          <View style={{ flex: 2, alignItems: "center", justifyContent: "center" }}>
+            <View
+              style={{
+                flex: 2,
+                alignItems: "center",
+                justifyContent: "center",
+                marginTop: "10%",
+                marginBottom: "5%",
+              }}
+            >
+              <Text
+                style={{
+                  fontSize: 30,
+                  alignSelf: "center",
+                  marginTop: "10%",
+                  marginBottom: "5%",
+                  fontFamily: "robotoRegular",
+                  flex: 1,
+                }}
+              >
+                Book a Visit
           </Text>
-          <View style={{ flex: 1, marginBottom: "5%" }}>
-            <View style={{ width: width - 20 }}>
-              <StepIndicator
-                customStyles={customStyles}
-                currentPosition={3}
-                labels={labels}
-                stepCount={4}
-              />
+              <View style={{ flex: 1, marginBottom: "5%" }}>
+                <View style={{ width: width - 20 }}>
+                  <StepIndicator
+                    customStyles={customStyles}
+                    currentPosition={3}
+                    labels={labels}
+                    stepCount={4}
+                  />
+                </View>
+              </View>
+            </View>
+            <View
+              style={{
+                flex: 5,
+                alignItems: "center",
+                justifyContent: "flex-start",
+                margin: "5%",
+              }}
+            >
+              <Text
+                style={{
+                  fontSize: 25,
+                  alignSelf: "center",
+                  margin: "5%",
+                  textAlign: "center",
+                  fontFamily: "robotoRegular",
+                }}
+              >
+                Thank you for booking a visit!
+          </Text>
+              <Text
+                style={{
+                  fontSize: 15,
+                  alignSelf: "center",
+                  margin: "5%",
+                  textAlign: "justify",
+                  fontFamily: "robotoRegular",
+                }}
+              >
+                Click the button below to generate your
+                visitor digital badge
+            {"\n"}
+              </Text>
+              <Button
+                mode="contained"
+                onPress={bookApi}
+                theme={{ roundness: 10 }}
+                style={{
+                  width: 140,
+                  height: 50,
+                  justifyContent: "center",
+                }}
+                labelStyle={{
+                  fontFamily: "robotoRegular",
+                }}
+              >
+                View Badge
+          </Button>
             </View>
           </View>
-        </View>
-        <View
-          style={{
-            flex: 5,
-            alignItems: "center",
-            justifyContent: "flex-start",
-            margin: "5%",
-          }}
-        >
-          <Text
-            style={{
-              fontSize: 25,
-              alignSelf: "center",
-              margin: "5%",
-              textAlign:"center",
-              fontFamily: "robotoRegular",
-            }}
-          >
-            Thank you for booking a visit!
-          </Text>
-          <Text
-            style={{
-              fontSize: 15,
-              alignSelf: "center",
-              margin: "5%",
-              textAlign:"justify",
-              fontFamily: "robotoRegular",
-            }}
-          >
-            Click the button below to generate your
-            visitor digital badge
-            {"\n"} 
-          </Text>
-          <Button
-            mode="contained"
-            onPress={bookApi}
-            theme={{ roundness: 10 }}
-            style={{
-              width: 140,
-              height: 50,
-              justifyContent: "center",
-            }}
-            labelStyle={{
-              fontFamily: "robotoRegular",
-            }}
-          >
-            View Badge
-          </Button>
         </View>
       </View>
     </PaperProvider>

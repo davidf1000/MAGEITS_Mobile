@@ -68,129 +68,151 @@ function Book2({ route, navigation }) {
   }, []);
   return (
     <PaperProvider theme={theme}>
-      <View style={{ flex: 2, alignItems: "center", justifyContent: "center" }}>
-        <View
-          style={{
-            flex: 2,
-            alignItems: "center",
-            justifyContent: "center",
-            marginTop: "10%",
-            marginBottom: "5%",
-          }}
-        >
-          <Text
-            style={{
-              fontSize: 30,
-              alignSelf: "center",
-              marginTop: "10%",
-              marginBottom: "5%",
-              fontFamily: "robotoRegular",
-              flex: 1,
-            }}
-          >
-            Book a Visit
-          </Text>
-          <View style={{ flex: 1, marginBottom: "5%" }}>
-            <View style={{ width: width - 20 }}>
-              <StepIndicator
-                customStyles={customStyles}
-                currentPosition={1}
-                labels={labels}
-                stepCount={4}
-              />
-            </View>
-          </View>
-        </View>
-        <View
-          style={{
-            flex: 4,
-            alignItems: "center",
-            justifyContent: "flex-start",
-            margin: "5%",
-          }}
-        >
-          {loaded ? (
-            sessions.map((x, i) => (
-              <View style={{ flexDirection: "row",marginTop:15 }} key={i}>
-                <RadioButton
-                  value={`Session ${i + 1} (${x.session_from.substring(
-                    0,
-                    5
-                  )} - ${x.session_to.substring(0, 5)})`}
-                  status={
-                    checked === String(x.session_number)
-                      ? "checked"
-                      : "unchecked"
-                  }
-                  onPress={() => setChecked(String(x.session_number))}
-                  uncheckedColor="gray"
-                  color="#4b6ed6"
-                />
-                <Text style={{ fontFamily: "robotoRegular",fontSize: 20,marginTop:3,marginHorizontal:14 }}>{`Session ${
-                  i + 1
-                } (${x.session_from.substring(0, 5)} - ${x.session_to.substring(
-                  0,
-                  5
-                )})`}</Text>
-              </View>
-            ))
-          ) : (
-            <ActivityIndicator
-              style={{ margin: "20%" }}
-              size="large"
-              color="#4b6ed6"
-            />
-          )}
-        </View>
+      <View style={{ flex: 1, backgroundColor: '#4b6ed6', paddingTop: 10, paddingLeft: 1, paddingRight: 1, paddingBottom: 10 }}>
         <View
           style={{
             flex: 1,
-            flexDirection: "row",
-            alignItems: "center",
-            marginTop: "10%",
-            marginBottom: "5%",
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            marginTop: '5%',
+            marginBottom: '2%',
+            marginLeft: '10%',
+            marginRight: '10%',
+            borderRadius: 20,
+            backgroundColor: '#fff',
+            padding: 5,
+            shadowColor: '#000',
+            shadowOffset: { width: 0, height: 2 },
+            shadowOpacity: 0.5,
+            shadowRadius: 2,
+            elevation: 2,
           }}
         >
-          <Button
-            mode="contained"
-            onPress={() => {
-              navigation.navigate("Step 1");
-            }}
-            theme={{ roundness: 10 }}
-            style={{
-              width: 100,
-              height: 50,
-              justifyContent: "center",
-              marginRight: "5%",
-            }}
-            labelStyle={{
-              fontFamily: "robotoRegular",
-            }}
-          >
-            Back
+          <View style={{ flex: 2, alignItems: "center", justifyContent: "center" }}>
+            <View
+              style={{
+                flex: 2,
+                alignItems: "center",
+                justifyContent: "center",
+                marginTop: "10%",
+                marginBottom: "5%",
+              }}
+            >
+              <Text
+                style={{
+                  fontSize: 30,
+                  alignSelf: "center",
+                  marginTop: "10%",
+                  marginBottom: "5%",
+                  fontFamily: "robotoRegular",
+                  flex: 1,
+                }}
+              >
+                Book a Visit
+          </Text>
+              <View style={{ flex: 1, marginBottom: "5%" }}>
+                <View style={{ width: width - 20 }}>
+                  <StepIndicator
+                    customStyles={customStyles}
+                    currentPosition={1}
+                    labels={labels}
+                    stepCount={4}
+                  />
+                </View>
+              </View>
+            </View>
+            <View
+              style={{
+                flex: 4,
+                alignItems: "center",
+                justifyContent: "flex-start",
+                margin: "5%",
+              }}
+            >
+              {loaded ? (
+                sessions.map((x, i) => (
+                  <View style={{ flexDirection: "row", marginTop: 15 }} key={i}>
+                    <RadioButton
+                      value={`Session ${i + 1} (${x.session_from.substring(
+                        0,
+                        5
+                      )} - ${x.session_to.substring(0, 5)})`}
+                      status={
+                        checked === String(x.session_number)
+                          ? "checked"
+                          : "unchecked"
+                      }
+                      onPress={() => setChecked(String(x.session_number))}
+                      uncheckedColor="gray"
+                      color="#4b6ed6"
+                    />
+                    <Text style={{ fontFamily: "robotoRegular", fontSize: 20, marginTop: 3, marginHorizontal: 14 }}>{`Session ${i + 1
+                      } (${x.session_from.substring(0, 5)} - ${x.session_to.substring(
+                        0,
+                        5
+                      )})`}</Text>
+                  </View>
+                ))
+              ) : (
+                  <ActivityIndicator
+                    style={{ margin: "20%" }}
+                    size="large"
+                    color="#4b6ed6"
+                  />
+                )}
+            </View>
+            <View
+              style={{
+                flex: 1,
+                flexDirection: "row",
+                alignItems: "center",
+                marginTop: "10%",
+                marginBottom: "5%",
+              }}
+            >
+              <Button
+                mode="contained"
+                onPress={() => {
+                  navigation.navigate("Step 1");
+                }}
+                theme={{ roundness: 10 }}
+                style={{
+                  width: 100,
+                  height: 50,
+                  justifyContent: "center",
+                  marginRight: "5%",
+                }}
+                labelStyle={{
+                  fontFamily: "robotoRegular",
+                }}
+              >
+                Back
           </Button>
-          <Button
-            mode="contained"
-            onPress={() => {
-              navigation.navigate("Step 3", {
-                visitee: visitee,
-                ward: ward,
-                date: date,
-                session: checked,
-              });
-            }}
-            theme={{ roundness: 10 }}
-            style={{
-              width: 100,
-              height: 50,
-              justifyContent: "center",
-            }}
-            labelStyle={{
-              fontFamily: "robotoRegular",
-            }}
-          >
-            Next
+              <Button
+                mode="contained"
+                onPress={() => {
+                  navigation.navigate("Step 3", {
+                    visitee: visitee,
+                    ward: ward,
+                    date: date,
+                    session: checked,
+                  });
+                }}
+                theme={{ roundness: 10 }}
+                style={{
+                  width: 100,
+                  height: 50,
+                  justifyContent: "center",
+                }}
+                labelStyle={{
+                  fontFamily: "robotoRegular",
+                }}
+              >
+                Next
           </Button>
+            </View>
+          </View>
         </View>
       </View>
     </PaperProvider>

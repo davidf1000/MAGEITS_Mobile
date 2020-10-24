@@ -1,13 +1,13 @@
 import React, { Component, useState, useEffect } from "react";
-import { Text, StyleSheet, View, ScrollView,TouchableOpacity,ActivityIndicator } from "react-native";
+import { Text, StyleSheet, View, ScrollView, TouchableOpacity, ActivityIndicator } from "react-native";
 import { Table, Row } from "react-native-table-component";
 import { getHistory } from "../../actions/api";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
 
-const dateFormatter = (date)=>{
-  return date.substring(0,4)+'-'+date.substring(5,7)+'-'+date.substring(8,10);
+const dateFormatter = (date) => {
+  return date.substring(0, 4) + '-' + date.substring(5, 7) + '-' + date.substring(8, 10);
 }
 
 const History = ({
@@ -26,7 +26,7 @@ const History = ({
   },
   navigation,
 }) => {
-  const [loaded,setLoaded]= useState(false);
+  const [loaded, setLoaded] = useState(false);
   const [data, setData] = useState({
     myArray: [],
     tableHead: ["Date", "Session", "Badge"],
@@ -68,43 +68,56 @@ const History = ({
   };
   // Buat pindah ke link
   const onLinkClick = async (x) => {
-    console.log("harusnya ini id :",x ); 
+    console.log("harusnya ini id :", x);
     navigation.navigate("Loading Badge", {
       bookId: x,
     });
   };
 
-  const renderButton = (data)=>
-        (
-        <TouchableOpacity onPress={() => onLinkClick(data)}>
-        <View style={{marginLeft: 25, width: 100, height: 25, backgroundColor: '#1CC88A',  borderRadius: 2, justifyContent:'center'}}>
-          <Text style={{textAlign: 'center', color: '#fff', fontFamily: 'robotoRegular'}}>Click Here</Text>
+  const renderButton = (data) =>
+    (
+      <TouchableOpacity onPress={() => onLinkClick(data)}>
+        <View style={{ marginLeft: 25, width: 100, height: 25, backgroundColor: '#1CC88A', borderRadius: 2, justifyContent: 'center' }}>
+          <Text style={{ textAlign: 'center', color: '#fff', fontFamily: 'robotoRegular' }}>Click Here</Text>
         </View>
       </TouchableOpacity>
-      )
-  ;
-  
+    )
+    ;
+
 
   return (
     <View style={styles1.container}>
-      <View>
-      <Text
-                        style={{
-                            fontSize: 30,
-                            alignSelf: 'center',
-                            marginTop: '20%',
-                            marginBottom: 20,
-                            fontFamily: 'robotoRegular',
-                        }}>
-                        History
-                    </Text>
-                    { loaded ? <View>
+      <View style={{
+        flex: 1.2,
+        backgroundColor: '#4b6ed6',
+        borderBottomLeftRadius: 20,
+        borderBottomRightRadius: 20,
+        width: '100%',
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginBottom: '2%',
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.5,
+        shadowRadius: 2,
+        elevation: 2,
+      }}>
+        <Text
+          style={{
+            fontSize: 30,
+            fontFamily: 'robotoRegular',
+            color: 'white'
+          }}>
+          Visit History
+        </Text>
+      </View>
+      {loaded ? <View style={{ flex: 5, paddingLeft: '2%', paddingTop: '2%', paddingRight: '2%' }}>
         <Table borderStyle={{ borderWidth: 1, borderColor: "black" }}>
           <Row
             data={data.tableHead}
             widthArr={data.widthArr}
             style={styles1.header}
-            textStyle={{...styles1.text,color:'white',fontSize:20}}
+            textStyle={{ ...styles1.text, color: 'white', fontSize: 20 }}
           />
         </Table>
         <ScrollView style={styles1.dataWrapper}>
@@ -129,10 +142,11 @@ const History = ({
               ))}
           </Table>
         </ScrollView>
-        </View> : 
-        <ActivityIndicator style={{marginTop:10}} size="large" color="#4b6ed6" />
-        }
+      </View> :
+      <View style={{flex: 1, justifyContent:'center', alignItems: 'center'}}>
+        <ActivityIndicator size="large" color="#4b6ed6" />
       </View>
+      }
     </View>
   );
 };
@@ -140,13 +154,11 @@ const History = ({
 const styles1 = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: "10%",
-    padding: '2%',
     justifyContent: "center",
     alignItems: "center",
   },
-  header: { height: 50, backgroundColor: "#4b6ed6", fontFamily: 'robotoRegular' },
-  text: { textAlign: "center", fontFamily: 'robotoRegular',fontSize:16 },
+  header: { height: 50, backgroundColor: "#b0c4de", },
+  text: { textAlign: "center", fontFamily: 'robotoRegular', fontSize: 16 },
   dataWrapper: { marginTop: -1 },
   row: { height: 40 },
 });
