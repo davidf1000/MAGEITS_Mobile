@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { DefaultTheme, Provider as PaperProvider, Button, TextInput } from 'react-native-paper';
-import { Text, View, Dimensions, KeyboardAvoidingView } from 'react-native';
+import { Text, View, Dimensions } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import DatePicker from 'react-native-datepicker'
 import StepIndicator from 'react-native-step-indicator';
@@ -50,6 +50,7 @@ function Book1({ naviagation }) {
     const [ward, setWard] = useState('');
     const [date, setDate] = useState('');
     return (
+        
             <PaperProvider theme={theme}>
                 <View style={{ flex: 1, backgroundColor: '#4b6ed6', paddingTop: 10, paddingLeft: 1, paddingRight: 1, paddingBottom: 10 }}>
                     <View
@@ -190,6 +191,7 @@ function Book1({ naviagation }) {
                     </View>
                 </View>
             </PaperProvider>
+        
     );
 }
 

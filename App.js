@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { KeyboardAvoidingView } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import LoginPage from './src/LoginPage';
@@ -14,7 +15,7 @@ import LoadingPage from './src/LoadingPage';
 import { Provider as ProviderRedux } from 'react-redux';
 import store from './store';
 // Font 
-import { 
+import {
   useFonts,
   Roboto_100Thin,
   Roboto_100Thin_Italic,
@@ -27,9 +28,9 @@ import {
   Roboto_700Bold,
   Roboto_700Bold_Italic,
   Roboto_900Black,
-  Roboto_900Black_Italic 
+  Roboto_900Black_Italic
 } from '@expo-google-fonts/roboto'
-import { 
+import {
   Raleway_100Thin,
   Raleway_100Thin_Italic,
   Raleway_200ExtraLight,
@@ -47,7 +48,7 @@ import {
   Raleway_800ExtraBold,
   Raleway_800ExtraBold_Italic,
   Raleway_900Black,
-  Raleway_900Black_Italic 
+  Raleway_900Black_Italic
 } from '@expo-google-fonts/raleway'
 import { render } from 'react-dom';
 import { AppLoading } from 'expo';
@@ -89,20 +90,20 @@ export default function App() {
     robotoBold: Roboto_700Bold,
     ralewayRegular: Raleway_400Regular
   });
-  if(!fontsLoaded){
+  if (!fontsLoaded) {
     return <AppLoading />
   }
   return (
     <ProviderRedux store={store}>
-    <NavigationContainer>
-      <Stack.Navigator headerMode='none'>
-        <Stack.Screen name="Inviso" component={LoginPage} />
-        <Stack.Screen name="Home" component={HomePage} />
-        <Stack.Screen name="Register Account" component={Register} />
-        <Stack.Screen name="Forgot Password" component={ForgotPassword} />
-        <Stack.Screen name="Loading Page" component={LoadingPage} />
-      </Stack.Navigator>
-    </NavigationContainer>
+        <NavigationContainer>
+          <Stack.Navigator headerMode='none'>
+            <Stack.Screen name="Inviso" component={LoginPage} />
+            <Stack.Screen name="Home" component={HomePage} />
+            <Stack.Screen name="Register Account" component={Register} />
+            <Stack.Screen name="Forgot Password" component={ForgotPassword} />
+            <Stack.Screen name="Loading Page" component={LoadingPage} />
+          </Stack.Navigator>
+        </NavigationContainer>
     </ProviderRedux>
   );
 }
