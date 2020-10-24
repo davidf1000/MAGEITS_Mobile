@@ -53,7 +53,7 @@ const LoginPage= ({
     
       <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
         <Image
-          source={require("./img/mage.png")}
+          source={require("./img/logo.png")}
           style={{
             
             alignSelf: "center",
@@ -68,6 +68,7 @@ const LoginPage= ({
             fontSize: 20,
             alignSelf: "center",
             marginBottom: "5%",
+            fontFamily: 'robotoRegular'
           }}
         >
           Welcome Back{'\n'}
@@ -93,7 +94,7 @@ const LoginPage= ({
             width: 300,
             alignContent: "center",
             justifyContent: "center",
-            //fontFamily: 'Roboto'
+            fontFamily: 'robotoRegular'
           }}
         />
         <TextInput
@@ -107,7 +108,7 @@ const LoginPage= ({
             width: 300,
             alignContent: "center",
             justifyContent: "center",
-            //fontFamily: 'Roboto'
+            fontFamily: 'robotoRegular'
           }}
           secureTextEntry={true}
         />
@@ -124,7 +125,7 @@ const LoginPage= ({
             marginBottom: "10%",
           }}
           labelStyle={{
-            //fontFamily: 'Roboto'
+            fontFamily: 'robotoRegular'
           }}
         >
           Login
@@ -134,7 +135,7 @@ const LoginPage= ({
             textAlign: "center",
             fontSize: 12,
             marginBottom: "5%",
-            //fontFamily: 'Roboto'
+            fontFamily: 'robotoRegular'
           }}
         >
           <Text>Don't have an account ? </Text>
@@ -154,7 +155,7 @@ const LoginPage= ({
             fontSize: 12,
             marginBottom: "30%",
             color: "blue",
-            //fontFamily: 'Roboto'
+            fontFamily: 'robotoRegular'
           }}
         >
           Forgot Password

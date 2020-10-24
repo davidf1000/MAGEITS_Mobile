@@ -12,7 +12,7 @@ const theme = {
   roundness: 2,
   colors: {
     ...DefaultTheme.colors,
-    primary: "purple",
+    primary: "#4b6ed6",
     accent: "yellow",
   },
 };
@@ -46,6 +46,7 @@ function LoadingBook({ navigation }) {
             fontSize: 20,
             alignSelf: "center",
             marginBottom: "5%",
+            fontFamily: 'robotoRegular'
           }}
         >
           Welcome Back

@@ -10,7 +10,7 @@ const theme = {
     roundness: 2,
     colors: {
         ...DefaultTheme.colors,
-        primary: 'purple',
+        primary: '#4b6ed6',
         accent: 'yellow',
     },
 };
@@ -44,7 +44,7 @@ const Profile = ({
                     flexDirection: 'column', 
                     alignItems: 'center', 
                     justifyContent: 'center', 
-                    marginTop: '2%', 
+                    marginTop: '5%', 
                     marginBottom: '2%',  
                     marginLeft: '10%',  
                     marginRight: '10%' }}
@@ -54,6 +54,7 @@ const Profile = ({
                         style={{
                             fontSize: 20,
                             alignSelf: 'center',
+                            fontFamily: 'robotoRegular'
                         }}>
                             Visitor Profile
                         </Text>
@@ -75,14 +76,15 @@ const Profile = ({
                             style={{
                                 fontSize: 15,
                                 alignSelf: 'center',
+                                fontFamily: 'robotoRegular'
                             }}>
                             {name && name}
                     </Text>
                     </View>
                     <View style={{ flex: 3, alignItems: 'center', justifyContent: 'center' }}>
-                        <Table borderStyle={{ borderWidth: 2, borderColor: 'purple' }} style={{ flexDirection: 'row', width: 300 }}>
-                            <Col data={data.tableHead} textStyle={{ margin: 6, textAlign: 'left' }} heightArr={[30, 30, 30, 30, 30]} />
-                            <Col data={data.tableData} textStyle={{ margin: 6, textAlign: 'right' }} heightArr={[30, 30, 30, 30, 30]} />
+                        <Table borderStyle={{ borderWidth: 2, borderColor: '#4b6ed6' }} style={{ flexDirection: 'row', width: 300 }}>
+                            <Col data={data.tableHead} textStyle={{ margin: 6, textAlign: 'left', fontFamily: 'robotoRegular' }} heightArr={[30, 30, 30, 30, 30]} />
+                            <Col data={data.tableData} textStyle={{ margin: 6, textAlign: 'right', fontFamily: 'robotoRegular' }} heightArr={[30, 30, 30, 30, 30]} />
                         </Table>
                     </View>
                     <Image

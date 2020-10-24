@@ -13,8 +13,8 @@ const theme = {
     roundness: 2,
     colors: {
         ...DefaultTheme.colors,
-        primary: 'yellow',
-        accent: 'purple',
+        primary: '#4b6ed6',
+        accent: 'yellow',
     },
 };
 
@@ -41,7 +41,7 @@ const BookBadge= ({ route,profile })=> {
                     flexDirection: 'column',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    marginTop: '5%',
+                    marginTop: '10%',
                     marginBottom: '5%',
                     marginLeft: '10%',
                     marginRight: '10%'
@@ -52,6 +52,7 @@ const BookBadge= ({ route,profile })=> {
                         style={{
                             fontSize: 20,
                             alignSelf: 'center',
+                            fontFamily: 'robotoRegular'
                         }}>
                         Digital Badge
                     </Text>
@@ -74,6 +75,7 @@ const BookBadge= ({ route,profile })=> {
                         style={{
                             fontSize: 15,
                             alignSelf: 'center',
+                            fontFamily: 'robotoRegular'
                         }}>
                         LMAO
                     </Text>
@@ -81,8 +83,8 @@ const BookBadge= ({ route,profile })=> {
                 <View style={{ flex: 2, alignItems: 'center', justifyContent: 'center', padding: '5%' }}>
                     {
                         <Table borderStyle={{ borderWidth: 2, borderColor: 'purple' }} style={{ flexDirection: 'row', width: 300 }}>
-                        <Col data={state.tableHead} textStyle={{ margin: 6, textAlign: 'left' }} heightArr={[30, 30, 30, 30, 30]} />
-                        <Col data={state.tableData} textStyle={{ margin: 6, textAlign: 'right' }} heightArr={[30, 30, 30, 30, 30]} />
+                        <Col data={state.tableHead} textStyle={{ margin: 6, textAlign: 'left', fontFamily: 'robotoRegular'}} heightArr={[30, 30, 30, 30, 30]} />
+                        <Col data={state.tableData} textStyle={{ margin: 6, textAlign: 'right', fontFamily: 'robotoRegular' }} heightArr={[30, 30, 30, 30, 30]} />
                     </Table>}
                 </View>
 

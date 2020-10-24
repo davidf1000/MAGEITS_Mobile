@@ -24,7 +24,8 @@ function Register1({ navigation }) {
                         style={{
                             fontSize: 30,
                             alignSelf: 'center',
-                            margin: '5%'
+                            margin: '5%',
+                            fontFamily: 'robotoRegular'
                         }}>
                         Account Registration
             </Text>
@@ -32,7 +33,8 @@ function Register1({ navigation }) {
                         style={{
                             fontSize: 20,
                             alignSelf: 'center',
-                            marginBottom: '20%'
+                            marginBottom: '20%',
+                            fontFamily: 'robotoRegular'
                         }}>
                         Step 1
             </Text>
@@ -48,7 +50,8 @@ function Register1({ navigation }) {
                             height: 60,
                             width: 300,
                             alignContent: 'center',
-                            justifyContent: 'center'
+                            justifyContent: 'center',
+                            fontFamily: 'robotoRegular'
                         }}
                     />
                     <TextInput
@@ -61,7 +64,8 @@ function Register1({ navigation }) {
                             height: 60,
                             width: 300,
                             alignContent: 'center',
-                            justifyContent: 'center'
+                            justifyContent: 'center',
+                            fontFamily: 'robotoRegular'
                         }}
                         secureTextEntry={true}
                     />
@@ -74,7 +78,8 @@ function Register1({ navigation }) {
                             height: 60,
                             width: 300,
                             alignContent: 'center',
-                            justifyContent: 'center'
+                            justifyContent: 'center',
+                            fontFamily: 'robotoRegular'
                         }}
                         secureTextEntry={true}
                     />
@@ -88,6 +93,9 @@ function Register1({ navigation }) {
                             width: 100,
                             height: 50,
                             justifyContent: 'center',
+                        }}
+                        labelStyle={{
+                            fontFamily: 'robotoRegular'
                         }}
                     >
                         Next

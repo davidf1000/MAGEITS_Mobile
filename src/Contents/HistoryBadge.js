@@ -13,7 +13,7 @@ const theme = {
     roundness: 2,
     colors: {
         ...DefaultTheme.colors,
-        primary: 'yellow',
+        primary: '#4b6ed6',
         accent: 'purple',
     },
 };
@@ -54,6 +54,7 @@ const HistoryBadge= ({ route,profile })=> {
                         style={{
                             fontSize: 20,
                             alignSelf: 'center',
+                            fontFamily: 'robotoRegular'
                         }}>
                         Digital Badge
                     </Text>
@@ -76,6 +77,7 @@ const HistoryBadge= ({ route,profile })=> {
                         style={{
                             fontSize: 15,
                             alignSelf: 'center',
+                            fontFamily: 'robotoRegular'
                         }}>
                         LMAO
                     </Text>
@@ -83,8 +85,8 @@ const HistoryBadge= ({ route,profile })=> {
                 <View style={{ flex: 2, alignItems: 'center', justifyContent: 'center', padding: '5%' }}>
                     {
                         <Table borderStyle={{ borderWidth: 2, borderColor: 'purple' }} style={{ flexDirection: 'row', width: 300 }}>
-                        <Col data={state.tableHead} textStyle={{ margin: 6, textAlign: 'left' }} heightArr={[30, 30, 30, 30, 30]} />
-                        <Col data={state.tableData} textStyle={{ margin: 6, textAlign: 'right' }} heightArr={[30, 30, 30, 30, 30]} />
+                        <Col data={state.tableHead} textStyle={{ margin: 6, textAlign: 'left', fontFamily: 'robotoRegular' }} heightArr={[30, 30, 30, 30, 30]} />
+                        <Col data={state.tableData} textStyle={{ margin: 6, textAlign: 'right', fontFamily: 'robotoRegular' }} heightArr={[30, 30, 30, 30, 30]} />
                     </Table>}
                 </View>
 

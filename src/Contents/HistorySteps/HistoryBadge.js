@@ -1,7 +1,7 @@
-import React, { useState,useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { render } from 'react-dom';
-import { View, Text, Image } from 'react-native';
-import { DefaultTheme, Provider as PaperProvider, DataTable } from 'react-native-paper';
+import { View, Text, Image, } from 'react-native';
+import { DefaultTheme, Provider as PaperProvider,  Button } from 'react-native-paper';
 import { Table, Col } from 'react-native-table-component';
 import QRCode from 'react-native-qrcode-svg';
 import { getBookId } from "../../actions/api";
@@ -13,27 +13,27 @@ const theme = {
     roundness: 2,
     colors: {
         ...DefaultTheme.colors,
-        primary: 'yellow',
-        accent: 'purple',
+        primary: '#4b6ed6',
+        accent: 'yellow',
     },
 };
 
-const HistoryBadge= ({ route,profile })=> {
+const HistoryBadge = ({ route, profile, navigation: { goBack } }) => {
     const { bookId } = route.params;
-    const [form, setForm] = useState({visitee:'',room:'',date:'',session:''});
+    const [form, setForm] = useState({ visitee: '', room: '', date: '', session: '' });
     const state = {
         tableHead: ['Visitee', 'Ward', 'Date', 'Session'],
-        tableData: [form.visitee ? form.visitee: '', form.room ? form.room : '', form.date ? form.date : '', form.session ? form.session : '']
+        tableData: [form.visitee ? form.visitee : '', form.room ? form.room : '', form.date ? form.date : '', form.session ? form.session : '']
     };
     const fetchBook = async () => {
         const res = await getBookId(bookId);
-        console.log("RES",res);
+        console.log("RES", res);
         setForm(res);
-      };
-      useEffect(() => {
+    };
+    useEffect(() => {
         fetchBook();
-      }, []);
-    
+    }, []);
+
 
     return (
         <PaperProvider theme={theme} >
@@ -43,7 +43,7 @@ const HistoryBadge= ({ route,profile })=> {
                     flexDirection: 'column',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    marginTop: '5%',
+                    marginTop: '10%',
                     marginBottom: '5%',
                     marginLeft: '10%',
                     marginRight: '10%'
@@ -54,12 +54,13 @@ const HistoryBadge= ({ route,profile })=> {
                         style={{
                             fontSize: 20,
                             alignSelf: 'center',
+                            fontFamily: 'robotoRegular'
                         }}>
                         Digital Badge
                     </Text>
                 </View>
                 <Image
-                    source={{uri:profile}}
+                    source={{ uri: profile }}
                     style={{
                         height: '35%',
                         width: '40%',
@@ -76,36 +77,56 @@ const HistoryBadge= ({ route,profile })=> {
                         style={{
                             fontSize: 15,
                             alignSelf: 'center',
+                            fontFamily: 'robotoRegular'
                         }}>
                         LMAO
                     </Text>
                 </View>
                 <View style={{ flex: 2, alignItems: 'center', justifyContent: 'center', padding: '5%' }}>
                     {
-                        <Table borderStyle={{ borderWidth: 2, borderColor: 'purple' }} style={{ flexDirection: 'row', width: 300 }}>
-                        <Col data={state.tableHead} textStyle={{ margin: 6, textAlign: 'left' }} heightArr={[30, 30, 30, 30, 30]} />
-                        <Col data={state.tableData} textStyle={{ margin: 6, textAlign: 'right' }} heightArr={[30, 30, 30, 30, 30]} />
-                    </Table>}
+                        <Table borderStyle={{ borderWidth: 2, borderColor: '#4b6ed6' }} style={{ flexDirection: 'row', width: 300 }}>
+                            <Col data={state.tableHead} textStyle={{ margin: 6, textAlign: 'left', fontFamily: 'robotoRegular' }} heightArr={[30, 30, 30, 30, 30]} />
+                            <Col data={state.tableData} textStyle={{ margin: 6, textAlign: 'right', fontFamily: 'robotoRegular' }} heightArr={[30, 30, 30, 30, 30]} />
+                        </Table>}
                 </View>
 
-                    <QRCode
-      value="http://awesome.link.qr"
-    />
+                <QRCode
+                    value="http://awesome.link.qr"
+                />
+
+                <Button mode="contained"
+                    onPress={() => {
+                        goBack()
+                    }}
+                    theme={{ roundness: 10 }}
+                    style={{
+                        width: 100,
+                        height: 30,
+                        justifyContent: 'center',
+                        marginTop:'5%',
+                        backgroundColor: '#4b6ed6'
+                    }}
+                    labelStyle={{
+                        fontFamily: 'robotoRegular'
+                    }}
+                >
+                    Back
+                </Button>
             </View>
         </PaperProvider>
     );
 }
 HistoryBadge.propTypes = {
     profile: PropTypes.string.isRequired,
-  };
-  
-  const mapStateToProps = (state) => ({
+};
+
+const mapStateToProps = (state) => ({
     profile: state.auth.attributes.profile,
-  });
-  
-  export default connect(mapStateToProps, {})(HistoryBadge);
-  
-                {/* <Image
+});
+
+export default connect(mapStateToProps, {})(HistoryBadge);
+
+{/* <Image
                     source={require('./img/QRExample.png')}
                     style={{
                         borderColor: 'black',

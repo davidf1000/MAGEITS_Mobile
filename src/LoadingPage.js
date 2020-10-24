@@ -33,10 +33,8 @@ function LoginPage({ navigation }) {
     <PaperProvider theme={theme}>
       <View style={{ flex: 1, alignItems: "center", justifyContent: "center"}}>
         <Image
-          source={require("./img/mage.png")}
+          source={require("./img/logo.png")}
           style={{
-            alignSelf: "center",
-            marginTop: "30%",
             marginBottom: "10%",
             height: "25%",
             width: "40%",
@@ -45,8 +43,8 @@ function LoginPage({ navigation }) {
         <Text
           style={{
             fontSize: 20,
-            alignSelf: "center",
             marginBottom: "5%",
+            fontFamily: 'robotoRegular'
           }}
         >
           Welcome Back

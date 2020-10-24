@@ -70,8 +70,8 @@ const History = ({
   const renderButton = (data)=>
         (
         <TouchableOpacity onPress={() => onLinkClick(data)}>
-        <View style={{marginLeft: 25, width: 100, height: 25, backgroundColor: '#78B7BB',  borderRadius: 2}}>
-          <Text style={{textAlign: 'center', color: '#fff'}}>Click Here</Text>
+        <View style={{marginLeft: 25, width: 100, height: 25, backgroundColor: '#78B7BB',  borderRadius: 2, justifyContent:'center'}}>
+          <Text style={{textAlign: 'center', color: '#fff', fontFamily: 'robotoRegular'}}>Click Here</Text>
         </View>
       </TouchableOpacity>
       )
@@ -120,12 +120,13 @@ const History = ({
 const styles1 = StyleSheet.create({
   container: {
     flex: 1,
-    padding: "2%",
+    marginTop: "10%",
+    padding: '2%',
     justifyContent: "center",
     alignItems: "center",
   },
-  header: { height: 50, backgroundColor: "purple" },
-  text: { textAlign: "center" },
+  header: { height: 50, backgroundColor: "#4b6ed6", fontFamily: 'robotoRegular' },
+  text: { textAlign: "center", fontFamily: 'robotoRegular' },
   dataWrapper: { marginTop: -1 },
   row: { height: 40 },
 });

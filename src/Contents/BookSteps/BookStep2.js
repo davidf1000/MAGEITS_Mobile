@@ -1,15 +1,15 @@
-import React, { useState,useEffect} from 'react';
-import { DefaultTheme, Provider as PaperProvider, Button, RadioButton} from 'react-native-paper';
+import React, { useState, useEffect } from 'react';
+import { DefaultTheme, Provider as PaperProvider, Button, RadioButton } from 'react-native-paper';
 import { Text, View } from 'react-native';
 import {
     getAvailableSessions,
-  } from "../../actions/api";
+} from "../../actions/api";
 const theme = {
     ...DefaultTheme,
     roundness: 2,
     colors: {
         ...DefaultTheme.colors,
-        primary: 'purple',
+        primary: '#4b6ed6',
         accent: 'black',
     },
 };
@@ -17,33 +17,40 @@ const theme = {
 function Book2({ route, navigation }) {
     const { visitee, ward, date } = route.params;
     const [checked, setChecked] = React.useState();
-  const [sessions, setSessions] = useState([]);
-  useEffect(() => {
-    const fetchSession = async () => {
-        if (date === "") return;
-        const sessionFetch = await getAvailableSessions(date);
-        setSessions(sessionFetch);
-      };
-      fetchSession();
-      console.log("SESS",sessions);
-  }, []);
+    const [sessions, setSessions] = useState([]);
+    useEffect(() => {
+        const fetchSession = async () => {
+            if (date === "") return;
+            const sessionFetch = await getAvailableSessions(date);
+            setSessions(sessionFetch);
+        };
+        fetchSession();
+        console.log("SESS", sessions);
+    }, []);
     return (
         <PaperProvider theme={theme}>
-            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-                <View style={{ flex: 2, alignItems: 'center', justifyContent: 'center', margin: '5%' }}>
+            <View style={{ flex: 2, alignItems: 'center', justifyContent: 'center' }}>
+                <View style={{ flex: 2, alignItems: 'center', justifyContent: 'center', marginTop: '10%', marginBottom: '5%' }}>
                     <Text
                         style={{
                             fontSize: 30,
                             alignSelf: 'center',
-                            margin: '5%'
+                            marginTop: '10%',
+                            marginBottom: '5%',
+                            fontFamily: 'robotoRegular'
                         }}>
                         Book a Visit
                     </Text>
+                    <View style={{ flex:1, padding: 2, alignItems:'center', flexDirection:'row', width:'80%', marginBottom: '5%', borderRadius: 20, borderColor:'black', borderWidth: 2, overflow: 'hidden'}}>
+                        <View style={{flex: 2, backgroundColor: '#4b6ed6', aspectRatio:2 }} />
+                        <View style={{flex: 2, aspectRatio:2}} />
+                    </View>
                     <Text
                         style={{
                             fontSize: 20,
                             alignSelf: 'center',
-                            marginBottom: '20%'
+                            marginBottom: '20%',
+                            fontFamily: 'robotoRegular'
                         }}>
                         Step 2
                     </Text>
@@ -52,26 +59,24 @@ function Book2({ route, navigation }) {
 
                     {sessions.map((x, i) => (
                         <View style={{ flexDirection: 'row' }} key={i}>
-                        <Text>{`Session ${
-                                        i + 1
-                                      } (${x.session_from.substring(
+                            <Text style={{fontFamily: 'robotoRegular'}}>{`Session ${i + 1
+                                } (${x.session_from.substring(
+                                    0,
+                                    5
+                                )} - ${x.session_to.substring(0, 5)})`}</Text>
+                            <RadioButton
+                                value={`Session ${i + 1
+                                    } (${x.session_from.substring(
                                         0,
                                         5
-                                      )} - ${x.session_to.substring(0, 5)})`}</Text>
-                        <RadioButton
-                            value={`Session ${
-                                        i + 1
-                                      } (${x.session_from.substring(
-                                        0,
-                                        5
-                                      )} - ${x.session_to.substring(0, 5)})`}
-                            status={checked === String(x.session_number) ? 'checked' : 'unchecked'}
-                            onPress={() => setChecked(String(x.session_number))}
-                            uncheckedColor='gray'
-                            color='purple'
-                        />
-                    </View>
-                                  ))}
+                                    )} - ${x.session_to.substring(0, 5)})`}
+                                status={checked === String(x.session_number) ? 'checked' : 'unchecked'}
+                                onPress={() => setChecked(String(x.session_number))}
+                                uncheckedColor='gray'
+                                color='#4b6ed6'
+                            />
+                        </View>
+                    ))}
                 </View>
                 <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center', marginTop: '10%', marginBottom: '5%' }}>
                     <Button
@@ -83,6 +88,9 @@ function Book2({ route, navigation }) {
                             height: 50,
                             justifyContent: 'center',
                             marginRight: '5%'
+                        }}
+                        labelStyle={{
+                            fontFamily: 'robotoRegular'
                         }}
                     >
                         Back
@@ -102,6 +110,9 @@ function Book2({ route, navigation }) {
                             width: 100,
                             height: 50,
                             justifyContent: 'center',
+                        }}
+                        labelStyle={{
+                            fontFamily: 'robotoRegular'
                         }}
                     >
                         Next

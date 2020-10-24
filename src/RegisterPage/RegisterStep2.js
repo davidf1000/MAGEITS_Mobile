@@ -26,7 +26,8 @@ function Register2({ navigation }) {
                         style={{
                             fontSize: 30,
                             alignSelf: 'center',
-                            margin: '5%'
+                            margin: '5%',
+                            fontFamily: 'robotoRegular'
                         }}>
                         Account Registration
             </Text>
@@ -34,7 +35,8 @@ function Register2({ navigation }) {
                         style={{
                             fontSize: 20,
                             alignSelf: 'center',
-                            marginBottom: '20%'
+                            marginBottom: '20%',
+                            fontFamily: 'robotoRegular'
                         }}>
                         Step 2
             </Text>
@@ -50,7 +52,8 @@ function Register2({ navigation }) {
                             height: 60,
                             width: 300,
                             alignContent: 'center',
-                            justifyContent: 'center'
+                            justifyContent: 'center',
+                            fontFamily: 'robotoRegular'
                         }}
                     />
                     <TextInput
@@ -63,7 +66,8 @@ function Register2({ navigation }) {
                             height: 60,
                             width: 300,
                             alignContent: 'center',
-                            justifyContent: 'center'
+                            justifyContent: 'center',
+                            fontFamily: 'robotoRegular'
                         }}
                     />
                     <TextInput
@@ -75,7 +79,8 @@ function Register2({ navigation }) {
                             height: 60,
                             width: 300,
                             alignContent: 'center',
-                            justifyContent: 'center'
+                            justifyContent: 'center',
+                            fontFamily: 'robotoRegular'
                         }}
                     />
                     <TextInput
@@ -87,7 +92,8 @@ function Register2({ navigation }) {
                             height: 60,
                             width: 300,
                             alignContent: 'center',
-                            justifyContent: 'center'
+                            justifyContent: 'center',
+                            fontFamily: 'robotoRegular'
                         }}
                     />
                     <TextInput
@@ -99,7 +105,8 @@ function Register2({ navigation }) {
                             height: 60,
                             width: 300,
                             alignContent: 'center',
-                            justifyContent: 'center'
+                            justifyContent: 'center',
+                            fontFamily: 'robotoRegular'
                         }}
                     />
                 </View>
@@ -114,6 +121,9 @@ function Register2({ navigation }) {
                             justifyContent: 'center',
                             marginRight: '5%'
                         }}
+                        labelStyle={{
+                            fontFamily: 'robotoRegular'
+                        }}
                     >
                         Back
                         </Button>
@@ -126,6 +136,9 @@ function Register2({ navigation }) {
                             height: 50,
                             justifyContent: 'center',
                             marginLeft: '5%'
+                        }}
+                        labelStyle={{
+                            fontFamily: 'robotoRegular'
                         }}
                     >
                         Next

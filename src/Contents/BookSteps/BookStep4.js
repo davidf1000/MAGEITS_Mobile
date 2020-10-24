@@ -13,7 +13,7 @@ const theme = {
     roundness: 2,
     colors: {
         ...DefaultTheme.colors,
-        primary: 'purple',
+        primary: '#4b6ed6',
         accent: 'yellow',
     },
 };
@@ -41,21 +41,28 @@ function Book4({route,userId, name}) {
     }
     return (
         <PaperProvider theme={theme}>
-            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-                <View style={{ flex: 2, alignItems: 'center', justifyContent: 'center', margin: '5%' }}>
+            <View style={{ flex: 2, alignItems: 'center', justifyContent: 'center' }}>
+                <View style={{ flex: 2, alignItems: 'center', justifyContent: 'center', marginTop: '10%', marginBottom: '5%' }}>
                     <Text
                         style={{
                             fontSize: 30,
                             alignSelf: 'center',
-                            margin: '5%'
+                            marginTop: '10%',
+                            marginBottom: '5%',
+                            fontFamily: 'robotoRegular'
                         }}>
                         Book a Visit
                     </Text>
+                    <View style={{ flex:1, padding: 2, alignItems:'center', flexDirection:'row', width:'80%', marginBottom: '5%', borderRadius: 20, borderColor:'black', borderWidth: 2, overflow: 'hidden'}}>
+                        <View style={{flex: 4, backgroundColor: '#4b6ed6', aspectRatio:2 }} />
+                        <View style={{flex: 0, aspectRatio:2}} />
+                    </View>
                     <Text
                         style={{
                             fontSize: 20,
                             alignSelf: 'center',
-                            marginBottom: '20%'
+                            marginBottom: '20%',
+                            fontFamily: 'robotoRegular'
                         }}>
                         Step 4
                     </Text>
@@ -65,7 +72,8 @@ function Book4({route,userId, name}) {
                         style={{
                             fontSize: 15,
                             alignSelf: 'center',
-                            margin: '5%'
+                            margin: '5%',
+                            fontFamily: 'robotoRegular'
                         }}>
                         Render your digital badge now !
                     </Text>
@@ -75,7 +83,8 @@ function Book4({route,userId, name}) {
                             textAlign: 'center',
                             fontSize: 15,
                             marginBottom: '30%',
-                            color: 'blue'
+                            color: 'blue',
+                            fontFamily: 'robotoRegular'
                         }}
                     >
                         Click here

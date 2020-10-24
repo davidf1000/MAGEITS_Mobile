@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { DefaultTheme, Provider as PaperProvider, Button, TextInput,ProgressBar, Colors  } from 'react-native-paper';
+import { DefaultTheme, Provider as PaperProvider, Button, TextInput,ProgressBar, Colors} from 'react-native-paper';
 import { Text, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import DatePicker from 'react-native-datepicker'
@@ -8,7 +8,7 @@ const theme = {
     roundness: 2,
     colors: {
         ...DefaultTheme.colors,
-        primary: 'purple',
+        primary: '#4b6ed6',
         accent: 'yellow',
     },
 };
@@ -20,22 +20,28 @@ function Book1({naviagation}) {
     const [date, setDate] = useState('');
     return (
         <PaperProvider theme={theme}>
-            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-                <View style={{ flex: 2, alignItems: 'center', justifyContent: 'center', margin: '5%' }}>
+            <View style={{ flex: 2, alignItems: 'center', justifyContent: 'center' }}>
+                <View style={{ flex: 2, alignItems: 'center', justifyContent: 'center', marginTop: '10%', marginBottom: '5%' }}>
                     <Text
                         style={{
                             fontSize: 30,
                             alignSelf: 'center',
-                            margin: '5%'
+                            marginTop: '10%',
+                            marginBottom: '5%',
+                            fontFamily: 'robotoRegular'
                         }}>
                         Book a Visit
                     </Text>
-                    <ProgressBar progress={0.5} color={Colors.red800} />
+                    <View style={{ flex:1, padding: 2, alignItems:'center', flexDirection:'row', width:'80%', marginBottom: '5%', borderRadius: 20, borderColor:'black', borderWidth: 2, overflow: 'hidden'}}>
+                        <View style={{flex: 1, backgroundColor: '#4b6ed6', aspectRatio:2 }} />
+                        <View style={{flex: 3, aspectRatio:2}} />
+                    </View>
                     <Text
                         style={{
                             fontSize: 20,
                             alignSelf: 'center',
-                            marginBottom: '20%'
+                            marginBottom: '20%',
+                            fontFamily: 'robotoRegular'
                         }}>
                         Step 1
             </Text>
@@ -51,7 +57,8 @@ function Book1({naviagation}) {
                             height: 60,
                             width: 300,
                             alignContent: 'center',
-                            justifyContent: 'center'
+                            justifyContent: 'center',
+                            fontFamily: 'robotoRegular'
                         }}
                     />
                     <TextInput
@@ -64,7 +71,8 @@ function Book1({naviagation}) {
                             height: 60,
                             width: 300,
                             alignContent: 'center',
-                            justifyContent: 'center'
+                            justifyContent: 'center',
+                            fontFamily: 'robotoRegular'
                         }}
                     />
                     <TextInput
@@ -76,7 +84,8 @@ function Book1({naviagation}) {
                             height: 60,
                             width: 300,
                             alignContent: 'center',
-                            justifyContent: 'center'
+                            justifyContent: 'center',
+                            fontFamily: 'robotoRegular'
                         }}
                     />
       <DatePicker
@@ -116,6 +125,9 @@ function Book1({naviagation}) {
                             width: 100,
                             height: 50,
                             justifyContent: 'center',
+                        }}
+                        labelStyle={{
+                            fontFamily: 'robotoRegular'
                         }}
                     >
                         Next
