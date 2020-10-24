@@ -5,7 +5,7 @@ import {
   Button,
   RadioButton,
 } from "react-native-paper";
-import { Text, View, Dimensions } from "react-native";
+import { Text, View, Dimensions, ActivityIndicator } from "react-native";
 import { getAvailableSessions } from "../../actions/api";
 import StepIndicator from "react-native-step-indicator";
 
@@ -21,7 +21,12 @@ const theme = {
 
 const { width, height } = Dimensions.get("window");
 
-const labels = ["Pick\nschedule", "Select\nsession", "Confirmation", "Digital\nBadge"];
+const labels = [
+  "Pick\nschedule",
+  "Select\nsession",
+  "Confirmation",
+  "Digital\nBadge",
+];
 const customStyles = {
   stepIndicatorSize: 25,
   currentStepIndicatorSize: 30,
@@ -47,14 +52,16 @@ const customStyles = {
 };
 
 function Book2({ route, navigation }) {
+  const [loaded, setLoaded] = useState(false);
   const { visitee, ward, date } = route.params;
-  const [checked, setChecked] = React.useState();
+  const [checked, setChecked] = useState();
   const [sessions, setSessions] = useState([]);
   useEffect(() => {
     const fetchSession = async () => {
       if (date === "") return;
       const sessionFetch = await getAvailableSessions(date);
       setSessions(sessionFetch);
+      setLoaded(true);
     };
     fetchSession();
     console.log("SESS", sessions);
@@ -102,28 +109,38 @@ function Book2({ route, navigation }) {
             margin: "5%",
           }}
         >
-          {sessions.map((x, i) => (
-            <View style={{ flexDirection: "row" }} key={i}>
-              <Text style={{ fontFamily: "robotoRegular" }}>{`Session ${
-                i + 1
-              } (${x.session_from.substring(0, 5)} - ${x.session_to.substring(
-                0,
-                5
-              )})`}</Text>
-              <RadioButton
-                value={`Session ${i + 1} (${x.session_from.substring(
+          {loaded ? (
+            sessions.map((x, i) => (
+              <View style={{ flexDirection: "row",marginTop:15 }} key={i}>
+                <RadioButton
+                  value={`Session ${i + 1} (${x.session_from.substring(
+                    0,
+                    5
+                  )} - ${x.session_to.substring(0, 5)})`}
+                  status={
+                    checked === String(x.session_number)
+                      ? "checked"
+                      : "unchecked"
+                  }
+                  onPress={() => setChecked(String(x.session_number))}
+                  uncheckedColor="gray"
+                  color="#4b6ed6"
+                />
+                <Text style={{ fontFamily: "robotoRegular",fontSize: 20,marginTop:3,marginHorizontal:14 }}>{`Session ${
+                  i + 1
+                } (${x.session_from.substring(0, 5)} - ${x.session_to.substring(
                   0,
                   5
-                )} - ${x.session_to.substring(0, 5)})`}
-                status={
-                  checked === String(x.session_number) ? "checked" : "unchecked"
-                }
-                onPress={() => setChecked(String(x.session_number))}
-                uncheckedColor="gray"
-                color="#4b6ed6"
-              />
-            </View>
-          ))}
+                )})`}</Text>
+              </View>
+            ))
+          ) : (
+            <ActivityIndicator
+              style={{ margin: "20%" }}
+              size="large"
+              color="#4b6ed6"
+            />
+          )}
         </View>
         <View
           style={{

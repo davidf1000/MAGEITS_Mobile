@@ -19,6 +19,7 @@ const theme = {
 };
 
 const HistoryBadge= ({ route,profile })=> {
+    const [loaded,setLoaded]= useState(false);
     const { bookId } = route.params;
     const [form, setForm] = useState({visitee:'',room:'',date:'',session:''});
     const state = {
@@ -29,6 +30,7 @@ const HistoryBadge= ({ route,profile })=> {
         const res = await getBookId(bookId);
         console.log("RES",res);
         setForm(res);
+        setLoaded(true);
       };
       useEffect(() => {
         fetchBook();
@@ -82,13 +84,15 @@ const HistoryBadge= ({ route,profile })=> {
                         LMAO
                     </Text>
                 </View>
-                <View style={{ flex: 2, alignItems: 'center', justifyContent: 'center', padding: '5%' }}>
-                    {
+                { loaded ?                <View style={{ flex: 2, alignItems: 'center', justifyContent: 'center', padding: '5%' }}>
                         <Table borderStyle={{ borderWidth: 2, borderColor: 'purple' }} style={{ flexDirection: 'row', width: 300 }}>
                         <Col data={state.tableHead} textStyle={{ margin: 6, textAlign: 'left', fontFamily: 'robotoRegular' }} heightArr={[30, 30, 30, 30, 30]} />
                         <Col data={state.tableData} textStyle={{ margin: 6, textAlign: 'right', fontFamily: 'robotoRegular' }} heightArr={[30, 30, 30, 30, 30]} />
-                    </Table>}
-                </View>
+                    </Table>
+                </View>:
+        <ActivityIndicator style={{marginTop:10}} size="large" color="#4b6ed6" />
+                
+                }
 
                     <QRCode
       value="http://awesome.link.qr"

@@ -79,7 +79,7 @@ function Book1({ naviagation }) {
                     <TextInput
                         label="Visitee's name"
                         value={visitee}
-                        onChangeText={visitee => setVisitee(visitee.toLowerCase())}
+                        onChangeText={visitee => setVisitee(visitee)}
                         style={{
                             alignSelf: 'center',
                             marginBottom: '5%',
