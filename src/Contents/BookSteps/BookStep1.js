@@ -126,7 +126,7 @@ function Book1({ naviagation }) {
                                     fontFamily: 'robotoRegular'
                                 }}
                             />
-                            <TextInput
+                            {/* <TextInput
                                 label="Visit date"
                                 value={date}
                                 onChangeText={date => setDate(date)}
@@ -138,9 +138,9 @@ function Book1({ naviagation }) {
                                     justifyContent: 'center',
                                     fontFamily: 'robotoRegular'
                                 }}
-                            />
+                            /> */}
                             <DatePicker
-                                style={{ width: 200 }}
+                                style={{ width: 300 }}
                                 date={date}
                                 mode="date"
                                 placeholder="select date"
@@ -154,7 +154,7 @@ function Book1({ naviagation }) {
                                         position: 'absolute',
                                         left: 0,
                                         top: 4,
-                                        marginLeft: 0
+                                        marginLeft: 0,
                                     },
                                     dateInput: {
                                         marginLeft: 36
