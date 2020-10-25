@@ -4,7 +4,7 @@ import {
   Provider as PaperProvider,
   Button,
 } from "react-native-paper";
-import { Text, View, Dimensions } from "react-native";
+import { Text, View, Dimensions,ActivityIndicator } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { connect } from "react-redux";
 import { getAvailableSessions, bookSchedule } from "../../actions/api";
@@ -55,6 +55,7 @@ const customStyles = {
 };
 
 function Book4({ route, userId, name }) {
+  const [click,setClick] = useState(false);
   const { visitee, ward, date, session } = route.params;
   const navigation2 = useNavigation();
   const bookApi = async () => {
@@ -67,6 +68,7 @@ function Book4({ route, userId, name }) {
       session: String(session),
     };
     console.log(dataSent);
+    setClick(true);
     const res = await bookSchedule(dataSent);
     console.log("RESPOND :", res);
 
@@ -177,6 +179,10 @@ function Book4({ route, userId, name }) {
               >
                 View Badge
           </Button>
+          {click && 
+            <View style={{flex: 1, justifyContent:'center', alignItems: 'center'}}>
+        <ActivityIndicator size="large" color="#5465ff" />
+      </View>}
             </View>
           </View>
         </View>

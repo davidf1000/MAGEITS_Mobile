@@ -43,8 +43,9 @@ const BookBadge = ({ route, profile }) => {
 
     return (
         <PaperProvider theme={theme} >
-           {loaded ?
+           
             <View style={{ flex: 1, backgroundColor: '#5465ff', paddingTop: 10, paddingLeft: 1, paddingRight: 1, paddingBottom: 10 }}>
+            
                 <View
                     style={{
                         flex: 1,
@@ -75,7 +76,7 @@ const BookBadge = ({ route, profile }) => {
                             Digital Badge
                     </Text>
                     </View>
-                    <Image
+{  loaded &&                  <Image
                         source={{ uri: profile }}
                         style={{
                             width: 150,
@@ -87,8 +88,8 @@ const BookBadge = ({ route, profile }) => {
                             padding: '5%',
                             aspectRatio: 1
                         }}
-                    />
-                    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+                    />}
+{  loaded &&                  <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
                         <Text
                             style={{
                                 fontSize: 25,
@@ -98,24 +99,22 @@ const BookBadge = ({ route, profile }) => {
                             {visitor && visitor}
 
                         </Text>
-                    </View>
-                     <View style={{ flex: 2, alignItems: 'center', justifyContent: 'center', padding: '15%' }}>
+                    </View>}
+{    loaded &&                 <View style={{ flex: 2, alignItems: 'center', justifyContent: 'center', padding: '15%' }}>
                         <Table borderStyle={{ borderWidth: 2, borderColor: '#5465ff' }} style={{ flexDirection: 'row', width: 300 }}>
                             <Col data={state.tableHead} textStyle={{ margin: 6, textAlign: 'left', fontFamily: 'robotoRegular', fontSize: 18 }} heightArr={[40, 40, 40, 40, 40]} />
                             <Col data={state.tableData} textStyle={{ margin: 6, textAlign: 'right', fontFamily: 'robotoRegular', fontSize: 18 }} heightArr={[40, 40, 40, 40, 40]} />
                         </Table>
-                    </View> 
-
+                    </View> }
+{ loaded &&
                     <QRCode
                         value={qr}
                         size={185}
-                    />
+                    />}
+                    {!loaded && <ActivityIndicator style={{ marginTop: 10 }} size="large" color="#5465ff" />}
                 </View>
             </View>
-            :
-                        <ActivityIndicator style={{ marginTop: 10 }} size="large" color="#5465ff" />
- 
-                    }
+
         </PaperProvider>
     );
 }
