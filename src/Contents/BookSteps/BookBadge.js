@@ -83,7 +83,8 @@ const BookBadge = ({ route, profile }) => {
                             borderColor: 'black',
                             borderWidth: 1,
                             flex: 2,
-                            padding: '5%'
+                            padding: '5%',
+                            aspectRatio: 1
                         }}
                     />
                     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>

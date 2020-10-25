@@ -77,7 +77,8 @@ const Profile = ({
                             overflow: 'hidden',
                             borderColor: 'black',
                             borderWidth: 1,
-                            flex: 3
+                            flex: 3,
+                            aspectRatio: 1
                         }}
                     />
                     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
