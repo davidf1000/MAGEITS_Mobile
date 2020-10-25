@@ -12,7 +12,7 @@ const theme = {
   roundness: 2,
   colors: {
     ...DefaultTheme.colors,
-    primary: "#4b6ed6",
+    primary: "#5465ff",
     accent: "yellow",
   },
 };

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Image, Text } from "react-native";
+import { View, Image, Text, ImageBackground } from "react-native";
 import {
   DefaultTheme,
   Provider as PaperProvider,
@@ -15,7 +15,7 @@ const theme = {
   roundness: 2,
   colors: {
     ...DefaultTheme.colors,
-    primary: "#4b6ed6",
+    primary: "#5465ff",
     accent: "black",
   },
 };
@@ -50,7 +50,7 @@ const LoginPage= ({
   // }
   return (
     <PaperProvider theme={theme}>
-    
+     <ImageBackground source={require('./img/Load-Transisi-1.png')} style={{ flex: 1, resizeMode: 'cover', justifyContent: 'center' }}>
       <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
         <Image
           source={require("./img/logo.png")}
@@ -161,6 +161,7 @@ const LoginPage= ({
           Forgot Password
         </Text>
       </View>
+      </ImageBackground>
     </PaperProvider>
   );
 }

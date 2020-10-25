@@ -16,7 +16,7 @@ const theme = {
   roundness: 4,
   colors: {
     ...DefaultTheme.colors,
-    primary: "#4b6ed6",
+    primary: "#5465ff",
     accent: "yellow",
   },
 };
@@ -44,7 +44,7 @@ function HomePage({ navigation }) {
           },
         })}
         tabBarOptions={{
-          activeTintColor: "#4b6ed6",
+          activeTintColor: "#5465ff",
           inactiveTintColor: "gray",
         //   style: { size:20 },
         }}

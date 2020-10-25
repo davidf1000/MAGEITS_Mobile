@@ -16,7 +16,7 @@ const theme = {
   roundness: 2,
   colors: {
     ...DefaultTheme.colors,
-    primary: "#4b6ed6",
+    primary: "#5465ff",
     accent: "yellow",
   },
 };
@@ -35,23 +35,23 @@ const customStyles = {
   currentStepIndicatorSize: 30,
   separatorStrokeWidth: 2,
   currentStepStrokeWidth: 3,
-  stepStrokeCurrentColor: "#4b6ed6",
+  stepStrokeCurrentColor: "#5465ff",
   stepStrokeWidth: 3,
-  stepStrokeFinishedColor: "#4b6ed6",
+  stepStrokeFinishedColor: "#5465ff",
   stepStrokeUnFinishedColor: "#aaaaaa",
-  separatorFinishedColor: "#4b6ed6",
+  separatorFinishedColor: "#5465ff",
   separatorUnFinishedColor: "#aaaaaa",
-  stepIndicatorFinishedColor: "#4b6ed6",
+  stepIndicatorFinishedColor: "#5465ff",
   stepIndicatorUnFinishedColor: "#ffffff",
   stepIndicatorCurrentColor: "#ffffff",
   stepIndicatorLabelFontSize: 13,
   currentStepIndicatorLabelFontSize: 13,
-  stepIndicatorLabelCurrentColor: "#4b6ed6",
+  stepIndicatorLabelCurrentColor: "#5465ff",
   stepIndicatorLabelFinishedColor: "#ffffff",
   stepIndicatorLabelUnFinishedColor: "#aaaaaa",
   labelColor: "#999999",
   labelSize: 13,
-  currentStepLabelColor: "#4b6ed6",
+  currentStepLabelColor: "#5465ff",
 };
 
 function Book4({ route, userId, name }) {
@@ -76,7 +76,7 @@ function Book4({ route, userId, name }) {
   };
   return (
     <PaperProvider theme={theme}>
-      <View style={{ flex: 1, backgroundColor: '#4b6ed6', paddingTop: 10, paddingLeft: 1, paddingRight: 1, paddingBottom: 10 }}>
+      <View style={{ flex: 1, backgroundColor: '#5465ff', paddingTop: 10, paddingLeft: 1, paddingRight: 1, paddingBottom: 10 }}>
         <View
           style={{
             flex: 1,

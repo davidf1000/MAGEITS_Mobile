@@ -1,5 +1,5 @@
-import React, { useState,useEffect } from "react";
-import { View, Image, Text, ActivityIndicator } from "react-native";
+import React, { useState, useEffect } from "react";
+import { View, Image, Text, ActivityIndicator, ImageBackground } from "react-native";
 import {
   DefaultTheme,
   Provider as PaperProvider,
@@ -16,46 +16,48 @@ const theme = {
   roundness: 2,
   colors: {
     ...DefaultTheme.colors,
-    primary: "#4b6ed6",
+    primary: "#5465ff",
     accent: "yellow",
   },
 };
 
-function LoadingPage({ navigation,auth }) {
-    const [loading,setLoading]=useState(true);
-    useEffect(()=>{
-        const fetchHistory=  ()=>{
-            setLoading(false);
-            navigation.navigate("Home")
-        }
-        // Tunggu 5 detik abis itu navigate home
-        const interval = setInterval(fetchHistory,3000);
-        return ()=>clearInterval(interval);
-      },[])
+function LoadingPage({ navigation, auth }) {
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    const fetchHistory = () => {
+      setLoading(false);
+      navigation.navigate("Home")
+    }
+    // Tunggu 5 detik abis itu navigate home
+    const interval = setInterval(fetchHistory, 3000);
+    return () => clearInterval(interval);
+  }, [])
   return (
     <PaperProvider theme={theme}>
-      <View style={{ flex: 1, alignItems: "center", justifyContent: "center"}}>
-        <Image
-          source={require("./img/logo.png")}
-          style={{
-            marginBottom: "10%",
-            height: "25%",
-            width: "40%",
-          }}
-        />
-        <Text
-          style={{
-            fontSize: 25,
-            marginBottom: "5%",
-            fontFamily: 'robotoRegular',
-            textAlign:'center'
-          }}
-        >
-          Welcome Back,{'\n\n'}
-          {auth && auth.user && auth.user.name}
-        </Text>
-        <ActivityIndicator style={{marginTop:10}} size="large" color="#4b6ed6" />
-      </View>
+     
+        <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+          <Image
+            source={require("./img/logo.png")}
+            style={{
+              marginBottom: "10%",
+              height: "25%",
+              width: "40%",
+            }}
+          />
+          <Text
+            style={{
+              fontSize: 25,
+              marginBottom: "5%",
+              fontFamily: 'robotoRegular',
+              textAlign: 'center'
+            }}
+          >
+            Welcome Back,{'\n\n'}
+            {auth && auth.user && auth.user.name}
+          </Text>
+          <ActivityIndicator style={{ marginTop: 10 }} size="large" color="#5465ff" />
+        </View>
+      
     </PaperProvider>
   );
 }
@@ -63,7 +65,7 @@ function LoadingPage({ navigation,auth }) {
 //   name: PropTypes.string.isRequired
 // };
 const mapStateToProps = (state) => ({
-  auth : state.auth
+  auth: state.auth
 });
 
 export default connect(mapStateToProps, {})(LoadingPage);

@@ -13,7 +13,7 @@ const theme = {
     roundness: 2,
     colors: {
         ...DefaultTheme.colors,
-        primary: '#4b6ed6',
+        primary: '#5465ff',
         accent: 'yellow',
     },
 };
@@ -45,7 +45,7 @@ const HistoryBadge = ({ route, profile, navigation: { goBack } }) => {
     return (
         <PaperProvider theme={theme} >
             {loaded ?
-                <View style={{ flex: 1, backgroundColor: '#4b6ed6', paddingTop: 10, paddingLeft: 1, paddingRight: 1, paddingBottom: 10 }}>
+                <View style={{ flex: 1, backgroundColor: '#5465ff', paddingTop: 10, paddingLeft: 1, paddingRight: 1, paddingBottom: 10 }}>
                     <View
                         style={{
                             flex: 1,
@@ -101,7 +101,7 @@ const HistoryBadge = ({ route, profile, navigation: { goBack } }) => {
                         </View>
                         <View style={{ flex: 2, alignItems: 'center', justifyContent: 'center', padding: '15%', marginBottom: '5%' }}>
                             {
-                                <Table borderStyle={{ borderWidth: 2, borderColor: '#4b6ed6' }} style={{ flexDirection: 'row', width: 300 }}>
+                                <Table borderStyle={{ borderWidth: 2, borderColor: '#5465ff' }} style={{ flexDirection: 'row', width: 300 }}>
                                     <Col data={state.tableHead} textStyle={{ margin: 6, textAlign: 'left', fontFamily: 'robotoRegular', fontSize: 18 }} heightArr={[40, 40, 40, 40, 40]} />
                                     <Col data={state.tableData} textStyle={{ margin: 6, textAlign: 'right', fontFamily: 'robotoRegular', fontSize: 18 }} heightArr={[40, 40, 40, 40, 40]} />
                                 </Table>}
@@ -123,7 +123,7 @@ const HistoryBadge = ({ route, profile, navigation: { goBack } }) => {
                                 height: 30,
                                 justifyContent: 'center',
                                 marginTop: '5%',
-                                backgroundColor: '#4b6ed6'
+                                backgroundColor: '#5465ff'
                             }}
                             labelStyle={{
                                 fontFamily: 'robotoRegular'
@@ -133,7 +133,7 @@ const HistoryBadge = ({ route, profile, navigation: { goBack } }) => {
                 </Button>
                     </View>
                 </View> :
-                <ActivityIndicator style={{ marginTop: 10 }} size="large" color="#4b6ed6" />
+                <ActivityIndicator style={{ marginTop: 10 }} size="large" color="#5465ff" />
 
 
             }

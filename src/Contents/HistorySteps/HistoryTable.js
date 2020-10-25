@@ -89,7 +89,7 @@ const History = ({
     <View style={styles1.container}>
       <View style={{
         flex: 1.2,
-        backgroundColor: '#4b6ed6',
+        backgroundColor: '#5465ff',
         borderBottomLeftRadius: 20,
         borderBottomRightRadius: 20,
         width: '100%',
@@ -135,7 +135,7 @@ const History = ({
                   widthArr={data.widthArr}
                   style={[
                     styles1.row,
-                    index % 2 && { backgroundColor: "#F7F6E7" },
+                    index % 2 && { backgroundColor: "#7b8cfc" },
                   ]}
                   textStyle={styles1.text}
                 />
@@ -144,7 +144,7 @@ const History = ({
         </ScrollView>
       </View> :
       <View style={{flex: 1, justifyContent:'center', alignItems: 'center'}}>
-        <ActivityIndicator size="large" color="#4b6ed6" />
+        <ActivityIndicator size="large" color="#5465ff" />
       </View>
       }
     </View>

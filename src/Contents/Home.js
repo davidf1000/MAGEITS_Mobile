@@ -134,7 +134,7 @@ const Home= ({
         }}
       >
         <View
-          style={{ flex: 1, backgroundColor: "#4b6ed6", alignSelf: "stretch" }}
+          style={{ flex: 1, backgroundColor: "#5465ff", alignSelf: "stretch" }}
         ></View>
         <View
           style={{
@@ -210,7 +210,7 @@ const Home= ({
                   alignItems: "center",
                 }}
               >
-                <FontAwesome name="qrcode" size={36} color="#4b6ed6" />
+                <FontAwesome name="qrcode" size={36} color="#5465ff" />
               </View>
               <View style={{ flex: 1, flexDirection: "column" }}>
                 <Text
@@ -248,7 +248,7 @@ const Home= ({
                   alignItems: "center",
                 }}
               >
-                <FontAwesome name="hospital-o" size={36} color="#4b6ed6" /> 
+                <FontAwesome name="hospital-o" size={36} color="#5465ff" /> 
               </View>
               <View style={{ flex: 1, flexDirection: "column" }}>
                 <Text
@@ -293,7 +293,7 @@ const Home= ({
           flex: 1,
           alignItems: "center",
           justifyContent: "center",
-          backgroundColor: "#4b6ed6",
+          backgroundColor: "#5465ff",
           width: "100%",
           paddingBottom: "3%",
           paddingTop: "1%",

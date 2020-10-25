@@ -10,7 +10,7 @@ const theme = {
     roundness: 2,
     colors: {
         ...DefaultTheme.colors,
-        primary: '#4b6ed6',
+        primary: '#5465ff',
         accent: 'yellow',
     },
 };
@@ -37,7 +37,7 @@ const Profile = ({
     });
     return (
         <PaperProvider theme={theme} >
-            <View style={{ flex: 1, backgroundColor: '#4b6ed6', paddingTop: 10, paddingLeft: 1, paddingRight: 1, paddingBottom: 10 }}>
+            <View style={{ flex: 1, backgroundColor: '#5465ff', paddingTop: 10, paddingLeft: 1, paddingRight: 1, paddingBottom: 10 }}>
                 <View
                     style={{
                         flex: 1,
@@ -104,7 +104,7 @@ const Profile = ({
                         <Table
                             borderStyle={{
                                 borderWidth: 1,
-                                borderColor: '#4b6ed6',
+                                borderColor: '#5465ff',
                             }}
                             style={{
                                 flexDirection: 'row',

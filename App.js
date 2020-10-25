@@ -57,7 +57,7 @@ console.disableYellowBox = true;
 const Stack = createStackNavigator();
 function Register() {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator headerMode='none'>
       <Stack.Screen name="Step 1" component={RegisterStep1} />
       <Stack.Screen name="Step 2" component={RegisterStep2} />
       <Stack.Screen name="Step 3" component={RegisterStep3} />
@@ -75,7 +75,7 @@ function Register() {
 // }
 function ForgotPassword() {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator headerMode='none'>
       <Stack.Screen name="Step 1" component={ForgotStep1} />
       <Stack.Screen name="Step 2" component={ForgotStep2} />
     </Stack.Navigator>
