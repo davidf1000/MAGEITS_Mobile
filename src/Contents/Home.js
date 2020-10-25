@@ -186,6 +186,16 @@ const Home= ({
             >
               Welcome,{'\n               '} {name}
             </Text>
+            <Image
+              source={require('../img/logo.png')}
+              style={{
+                width: 30,
+                overflow: "hidden",
+                aspectRatio: 1,
+                marginRight: 10,
+                marginLeft: 10,
+              }}
+            />
           </View>
           <View
             style={{

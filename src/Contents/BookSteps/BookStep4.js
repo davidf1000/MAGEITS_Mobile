@@ -4,7 +4,7 @@ import {
   Provider as PaperProvider,
   Button,
 } from "react-native-paper";
-import { Text, View, Dimensions,ActivityIndicator } from "react-native";
+import { Text, View, Dimensions, ActivityIndicator, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { connect } from "react-redux";
 import { getAvailableSessions, bookSchedule } from "../../actions/api";
@@ -55,7 +55,7 @@ const customStyles = {
 };
 
 function Book4({ route, userId, name }) {
-  const [click,setClick] = useState(false);
+  const [click, setClick] = useState(false);
   const { visitee, ward, date, session } = route.params;
   const navigation2 = useNavigation();
   const bookApi = async () => {
@@ -102,13 +102,24 @@ function Book4({ route, userId, name }) {
           <View style={{ flex: 2, alignItems: "center", justifyContent: "center" }}>
             <View
               style={{
-                flex: 2,
+                flex: 2.5,
                 alignItems: "center",
                 justifyContent: "center",
-                marginTop: "10%",
+                marginTop: "5%",
                 marginBottom: "5%",
               }}
             >
+              <Image
+                source={require('../../img/logo.png')}
+                style={{
+                  padding: 5,
+                  height: 30,
+                  width: 30,
+                  justifyContent: 'center',
+                  alignItems: 'center',
+
+                }}
+              />
               <Text
                 style={{
                   fontSize: 30,
@@ -179,10 +190,10 @@ function Book4({ route, userId, name }) {
               >
                 View Badge
           </Button>
-          {click && 
-            <View style={{flex: 1, justifyContent:'center', alignItems: 'center'}}>
-        <ActivityIndicator size="large" color="#5465ff" />
-      </View>}
+              {click &&
+                <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                  <ActivityIndicator size="large" color="#5465ff" />
+                </View>}
             </View>
           </View>
         </View>

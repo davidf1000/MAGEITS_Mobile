@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, ImageBackground } from 'react-native';
 import { DefaultTheme, Provider as PaperProvider, DataTable } from 'react-native-paper';
 import { Table, Col } from 'react-native-table-component';
 import { connect } from "react-redux";
@@ -58,6 +58,18 @@ const Profile = ({
                         elevation: 2,
                     }}
                 >
+                    <Image
+                        source={require('../img/logo.png')}
+                        style={{
+                            padding: 5,
+                            height: 320,
+                            width: 320,
+                            opacity: 0.1,
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            position: 'absolute',
+                        }}
+                    />
                     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
                         <Text
                             style={{

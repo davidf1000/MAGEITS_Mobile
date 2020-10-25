@@ -4,7 +4,7 @@ import {
   Provider as PaperProvider,
   Button,
 } from "react-native-paper";
-import { Text, View, Dimensions } from "react-native";
+import { Text, View, Dimensions, Image } from "react-native";
 import { Table, Col } from "react-native-table-component";
 import StepIndicator from "react-native-step-indicator";
 
@@ -84,13 +84,24 @@ function Book3({ route, navigation }) {
           <View style={{ flex: 2, alignItems: "center", justifyContent: "center" }}>
             <View
               style={{
-                flex: 2,
+                flex: 2.5,
                 alignItems: "center",
                 justifyContent: "center",
-                marginTop: "10%",
+                marginTop: "5%",
                 marginBottom: "5%",
               }}
             >
+              <Image
+                source={require('../../img/logo.png')}
+                style={{
+                  padding: 5,
+                  height: 30,
+                  width: 30,
+                  justifyContent: 'center',
+                  alignItems: 'center',
+
+                }}
+              />
               <Text
                 style={{
                   fontSize: 30,

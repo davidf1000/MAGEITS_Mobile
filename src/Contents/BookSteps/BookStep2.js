@@ -5,7 +5,7 @@ import {
   Button,
   RadioButton,
 } from "react-native-paper";
-import { Text, View, Dimensions, ActivityIndicator } from "react-native";
+import { Text, View, Dimensions, ActivityIndicator, Image } from "react-native";
 import { getAvailableSessions } from "../../actions/api";
 import StepIndicator from "react-native-step-indicator";
 
@@ -92,18 +92,28 @@ function Book2({ route, navigation }) {
           <View style={{ flex: 2, alignItems: "center", justifyContent: "center" }}>
             <View
               style={{
-                flex: 2,
+                flex: 2.5,
                 alignItems: "center",
                 justifyContent: "center",
                 marginTop: "10%",
                 marginBottom: "5%",
               }}
             >
+              <Image
+                source={require('../../img/logo.png')}
+                style={{
+                  padding: 5,
+                  height: 30,
+                  width: 30,
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}
+              />
               <Text
                 style={{
                   fontSize: 30,
                   alignSelf: "center",
-                  marginTop: "10%",
+                  marginTop: "5%",
                   marginBottom: "5%",
                   fontFamily: "robotoRegular",
                   flex: 1,

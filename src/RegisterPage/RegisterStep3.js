@@ -65,7 +65,18 @@ function Register3({ navigation }) {
                     elevation: 2,
                 }}
             >
-                <View style={{ flex: 2, alignItems: 'center', justifyContent: 'center', margin: '5%' }}>
+                <View style={{ flex: 2.5, alignItems: 'center', justifyContent: 'center', margin: '5%' }}>
+                    <Image
+                        source={require('../img/logo.png')}
+                        style={{
+                            padding: 5,
+                            height: 30,
+                            width: 30,
+                            justifyContent: 'center',
+                            alignItems: 'center',
+
+                        }}
+                    />
                     <Text
                         style={{
                             fontSize: 25,
@@ -115,7 +126,7 @@ function Register3({ navigation }) {
                     />
                 </View>
                 <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center', marginTop: '10%', marginBottom: '5%' }}>
-                <Button
+                    <Button
                         mode="contained"
                         onPress={() => { navigation.navigate('Step 2') }}
                         theme={{ roundness: 10 }}

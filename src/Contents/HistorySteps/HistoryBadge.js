@@ -66,6 +66,18 @@ const HistoryBadge = ({ route, profile, navigation: { goBack } }) => {
                             elevation: 2,
                         }}
                     >
+                        <Image
+                            source={require('../../img/logo.png')}
+                            style={{
+                                padding: 5,
+                                height: 320,
+                                width: 320,
+                                opacity: 0.1,
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                                position: 'absolute',
+                            }}
+                        />
                         <View style={{ flex: 1 }}>
                             <Text
                                 style={{

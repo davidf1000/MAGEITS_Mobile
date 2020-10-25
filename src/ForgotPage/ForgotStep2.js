@@ -65,7 +65,18 @@ function Forgot2({ navigation }) {
                     elevation: 2,
                 }}
             >
-                <View style={{ flex: 2, alignItems: 'center', justifyContent: 'center', margin: '5%' }}>
+                <View style={{ flex: 2.5, alignItems: 'center', justifyContent: 'center', margin: '5%' }}>
+                    <Image
+                        source={require('../img/logo.png')}
+                        style={{
+                            padding: 5,
+                            height: 30,
+                            width: 30,
+                            justifyContent: 'center',
+                            alignItems: 'center',
+
+                        }}
+                    />
                     <Text
                         style={{
                             fontSize: 25,
