@@ -43,6 +43,7 @@ const BookBadge = ({ route, profile }) => {
 
     return (
         <PaperProvider theme={theme} >
+           {loaded ?
             <View style={{ flex: 1, backgroundColor: '#5465ff', paddingTop: 10, paddingLeft: 1, paddingRight: 1, paddingBottom: 10 }}>
                 <View
                     style={{
@@ -98,15 +99,12 @@ const BookBadge = ({ route, profile }) => {
 
                         </Text>
                     </View>
-                    {loaded ? <View style={{ flex: 2, alignItems: 'center', justifyContent: 'center', padding: '15%' }}>
+                     <View style={{ flex: 2, alignItems: 'center', justifyContent: 'center', padding: '15%' }}>
                         <Table borderStyle={{ borderWidth: 2, borderColor: '#5465ff' }} style={{ flexDirection: 'row', width: 300 }}>
                             <Col data={state.tableHead} textStyle={{ margin: 6, textAlign: 'left', fontFamily: 'robotoRegular', fontSize: 18 }} heightArr={[40, 40, 40, 40, 40]} />
                             <Col data={state.tableData} textStyle={{ margin: 6, textAlign: 'right', fontFamily: 'robotoRegular', fontSize: 18 }} heightArr={[40, 40, 40, 40, 40]} />
                         </Table>
-                    </View> :
-                        <ActivityIndicator style={{ marginTop: 10 }} size="large" color="#5465ff" />
-
-                    }
+                    </View> 
 
                     <QRCode
                         value={qr}
@@ -114,6 +112,10 @@ const BookBadge = ({ route, profile }) => {
                     />
                 </View>
             </View>
+            :
+                        <ActivityIndicator style={{ marginTop: 10 }} size="large" color="#5465ff" />
+ 
+                    }
         </PaperProvider>
     );
 }

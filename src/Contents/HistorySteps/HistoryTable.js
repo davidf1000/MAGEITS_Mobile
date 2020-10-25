@@ -117,7 +117,7 @@ const History = ({
             data={data.tableHead}
             widthArr={data.widthArr}
             style={styles1.header}
-            textStyle={{ ...styles1.text, color: 'white', fontSize: 20 }}
+            textStyle={{ ...styles1.text, color: 'white', fontSize: 23 }}
           />
         </Table>
         <ScrollView style={styles1.dataWrapper}>
@@ -157,10 +157,10 @@ const styles1 = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-  header: { height: 50, backgroundColor: "#b0c4de", },
+  header: { height: 50, backgroundColor: "#5465ff"},
   text: { textAlign: "center", fontFamily: 'robotoRegular', fontSize: 16 },
   dataWrapper: { marginTop: -1 },
-  row: { height: 40 },
+  row: { height: 40  },
 });
 
 History.propTypes = {
