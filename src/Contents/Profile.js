@@ -33,7 +33,7 @@ const Profile = ({
     } }) => {
     const [data, setData] = useState({
         tableHead: ['Email', 'DoB', 'Gender', 'Address', 'Phone'],
-        tableData: [email, birthdate, gender, address, phone]
+        tableData: [email.substring(0,20), birthdate, gender, address.substring(0,20), phone]
     });
     return (
         <PaperProvider theme={theme} >
@@ -124,7 +124,7 @@ const Profile = ({
                                 width: '85%',
                             }}>
                             <Col data={data.tableHead} textStyle={{ margin: 6, textAlign: 'left', fontFamily: 'robotoRegular' }} heightArr={[30, 30, 30, 30, 30]} />
-                            <Col data={data.tableData} textStyle={{ margin: 6, textAlign: 'right', fontFamily: 'robotoRegular' }} heightArr={[30, 30, 30, 30, 30]} />
+                            <Col data={data.tableData} textStyle={{ margin: 6, textAlign: 'right', fontFamily: 'robotoRegular',fontSize: 12 }} heightArr={[30, 30, 30, 30, 30]} />
                         </Table>
                     </View>
                     <Image

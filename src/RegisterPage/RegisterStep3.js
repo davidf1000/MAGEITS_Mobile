@@ -98,32 +98,42 @@ function Register3({ navigation }) {
                     </View>
                 </View>
                 <View style={{ flex: 4, alignItems: 'center', justifyContent: 'flex-start', margin: '5%' }}>
-                    <TextInput
-                        label="Upload Profile"
-                        value={uploadProfile}
-                        onChangeText={uploadProfile => setUploadProfile(uploadProfile)}
+                <Button
+                        // label="Upload E-KTP"
+                        // value={uploadEKTP}
+                        // onChangeText={uploadEKTP => setUploadEKTP(uploadEKTP)}
                         style={{
                             alignSelf: 'center',
                             marginBottom: '5%',
                             height: 60,
-                            width: 300,
+                            width: 250,
                             alignContent: 'center',
-                            justifyContent: 'center'
+                            justifyContent: 'center',
+                            // colors:""
+                            borderColor:"#aaaaaa",
+                            borderWidth:1
                         }}
-                    />
-                    <TextInput
-                        label="Upload E-KTP"
-                        value={uploadEKTP}
-                        onChangeText={uploadEKTP => setUploadEKTP(uploadEKTP)}
+                    >
+                    Upload Profile Picture
+                    </Button>
+                    <Button
+                        // label="Upload E-KTP"
+                        // value={uploadEKTP}
+                        // onChangeText={uploadEKTP => setUploadEKTP(uploadEKTP)}
                         style={{
                             alignSelf: 'center',
                             marginBottom: '5%',
                             height: 60,
-                            width: 300,
+                            width: 250,
                             alignContent: 'center',
-                            justifyContent: 'center'
+                            justifyContent: 'center',
+                            // colors:""
+                            borderColor:"#aaaaaa",
+                            borderWidth:1
                         }}
-                    />
+                    >
+                    Upload E-KTP 
+                    </Button>
                 </View>
                 <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center', marginTop: '10%', marginBottom: '5%' }}>
                     <Button

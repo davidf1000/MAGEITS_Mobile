@@ -22,11 +22,12 @@ const theme = {
 };
 
 const labels = [
+    "Choose\nHospital",
     "Pick\nschedule",
     "Select\nsession",
-    "Confirmation",
+    "Confirm\nBook",
     "Digital\nBadge",
-];
+  ];
 const customStyles = {
     stepIndicatorSize: 25,
     currentStepIndicatorSize: 30,
@@ -166,9 +167,9 @@ function Book1({ naviagation }) {
                                     >
                                         <StepIndicator
                                             customStyles={customStyles}
-                                            currentPosition={0}
+                                            currentPosition={1}
                                             labels={labels}
-                                            stepCount={4}
+                                            stepCount={5}
                                         />
                                     </View>
                                 </View>

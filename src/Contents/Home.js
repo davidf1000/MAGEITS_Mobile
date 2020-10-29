@@ -184,7 +184,7 @@ const Home= ({
                 marginTop:7
               }}
             >
-              Welcome,{'\n               '} {name}
+              Welcome,{'\n         '} {name}
             </Text>
             <Image
               source={require('../img/logo.png')}

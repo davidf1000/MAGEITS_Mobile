@@ -36,7 +36,7 @@ const LoginPage= ({
     console.log("PRESSED !");
     // await loginCognito(email, password);
     // Biar cepet debugnya
-    await loginCognito("admin@gmail.com", "Admin123");
+    await loginCognito("davidfauzi1000@gmail.com", "Stylish883");
     navigation.navigate("Loading Page");
   };
   

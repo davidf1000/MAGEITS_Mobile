@@ -22,9 +22,10 @@ const theme = {
 const { width, height } = Dimensions.get("window");
 
 const labels = [
+  "Choose\nHospital",
   "Pick\nschedule",
   "Select\nsession",
-  "Confirmation",
+  "Confirm\nBook",
   "Digital\nBadge",
 ];
 const customStyles = {
@@ -125,9 +126,9 @@ function Book2({ route, navigation }) {
                 <View style={{ width: width - 10, paddingLeft: 20, paddingRight: 20 }}>
                   <StepIndicator
                     customStyles={customStyles}
-                    currentPosition={1}
+                    currentPosition={2}
                     labels={labels}
-                    stepCount={4}
+                    stepCount={5}
                   />
                 </View>
               </View>

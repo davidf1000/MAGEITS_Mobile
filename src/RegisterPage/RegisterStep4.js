@@ -103,8 +103,17 @@ function Register4({ navigation }) {
                         style={{
                             fontSize: 20,
                             alignSelf: 'center',
+                            textAlign:'center'
                         }}>
-                        Confirm Your E-mail
+                        Congratulations, Your account has been created!{"\n"}
+                    </Text>
+                    <Text
+                        style={{
+                            fontSize: 17,
+                            alignSelf: 'center',
+                            textAlign:'justify'
+                        }}>
+                        Check your email to confirm your account
                     </Text>
                 </View>
                 <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center', marginTop: '10%', marginBottom: '5%' }}>

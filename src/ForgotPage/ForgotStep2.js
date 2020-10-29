@@ -103,14 +103,14 @@ function Forgot2({ navigation }) {
                             fontSize: 20,
                             alignSelf: 'center',
                         }}>
-                        Thank you
+                        Thank you!{'\n'}
                     </Text>
                     <Text
                         style={{
-                            fontSize: 20,
+                            fontSize: 16,
                             alignSelf: 'center',
                         }}>
-                        Please check your E-mail
+                        Please check your E-mail to reset your password
                     </Text>
                 </View>
                 <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center', marginTop: '10%', marginBottom: '5%' }}>
