@@ -20,7 +20,7 @@ const theme = {
   },
 };
 
-const LoginPage= ({
+const LoginPage = ({
   navigation,
   loginCognito,
   isAdmin,
@@ -29,7 +29,6 @@ const LoginPage= ({
   alert,
   loading,
 }) => {
-
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const onSubmit = async () => {
@@ -39,132 +38,128 @@ const LoginPage= ({
     await loginCognito("davidfauzi1000@gmail.com", "Stylish883");
     navigation.navigate("Loading Page");
   };
-  
-  // if(!dataLoaded){
-  //   return (
-  //     <AppLoading 
-  //       startAsync={fetchFonts}
-  //       onFinish={()=>setDataLoaded(true)}
-  //     />
-  //   )
-  // }
+
   return (
     <PaperProvider theme={theme}>
-     <ImageBackground source={require('./img/Load-Transisi-1.png')} style={{ flex: 1, resizeMode: 'cover', justifyContent: 'center' }}>
-      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-        <Image
-          source={require("./img/logo.png")}
-          style={{
-            
-            alignSelf: "center",
-            marginTop: "30%",
-            marginBottom: "10%",
-            height: "25%",
-            width: "40%",
-          }}
-        />
-        <Text
-          style={{
-            fontSize: 20,
-            alignSelf: "center",
-            marginBottom: "5%",
-            fontFamily: 'robotoRegular'
-          }}
+      <ImageBackground
+        source={require("./img/Load-Transisi-1.png")}
+        style={{ flex: 1, resizeMode: "cover", justifyContent: "center" }}
+      >
+        <View
+          style={{ flex: 1, alignItems: "center", justifyContent: "center" }}
         >
-          Welcome Back{'\n'}
-        </Text>       
-        {/* Kalo failed login attempt */}
-        <Text
-          style={{
-            fontSize: 20,
-            alignSelf: "center",
-            marginBottom: "5%",
-          }}
-        >
-          {alert.length !== 0 && JSON.stringify(alert[0].msg)}
-        </Text>
-        <TextInput
-          label="Email"
-          value={email}
-          onChangeText={(email) => setEmail(email)}
-          style={{
-            alignSelf: "center",
-            marginBottom: "5%",
-            height: 60,
-            width: 300,
-            alignContent: "center",
-            justifyContent: "center",
-            fontFamily: 'robotoRegular'
-          }}
-        />
-        <TextInput
-          label="Password"
-          value={password}
-          onChangeText={(password) => setPassword(password)}
-          style={{
-            alignSelf: "center",
-            marginBottom: "5%",
-            height: 60,
-            width: 300,
-            alignContent: "center",
-            justifyContent: "center",
-            fontFamily: 'robotoRegular'
-          }}
-          secureTextEntry={true}
-        />
-        <Button
-          mode="contained"
-          onPress={onSubmit}
-          theme={{ roundness: 10 }}
-          style={{
-            alignSelf: "center",
-            height: 50,
-            width: 200,
-            alignContent: "center",
-            justifyContent: "center",
-            marginBottom: "10%",
-          }}
-          labelStyle={{
-            fontFamily: 'robotoRegular'
-          }}
-        >
-          Login
-        </Button>
-        <Text
-          style={{
-            textAlign: "center",
-            fontSize: 12,
-            marginBottom: "5%",
-            fontFamily: 'robotoRegular'
-          }}
-        >
-          <Text>Don't have an account ? </Text>
-          <Text
-            onPress={() => navigation.navigate("Register Account")}
+          <Image
+            source={require("./img/logo.png")}
             style={{
-              color: "blue",
+              alignSelf: "center",
+              marginTop: "30%",
+              marginBottom: "10%",
+              height: "25%",
+              width: "40%",
+            }}
+          />
+          <Text
+            style={{
+              fontSize: 20,
+              alignSelf: "center",
+              marginBottom: "5%",
+              fontFamily: "robotoRegular",
             }}
           >
-            Create An Account
+            Welcome Back{"\n"}
           </Text>
-        </Text>
-        <Text
-          onPress={() => navigation.navigate("Forgot Password")}
-          style={{
-            textAlign: "center",
-            fontSize: 12,
-            marginBottom: "30%",
-            color: "blue",
-            fontFamily: 'robotoRegular'
-          }}
-        >
-          Forgot Password
-        </Text>
-      </View>
+          {/* Kalo failed login attempt */}
+          <Text
+            style={{
+              fontSize: 20,
+              alignSelf: "center",
+              marginBottom: "5%",
+            }}
+          >
+            {alert.length !== 0 && JSON.stringify(alert[0].msg)}
+          </Text>
+          <TextInput
+            label="Email"
+            value={email}
+            onChangeText={(email) => setEmail(email)}
+            style={{
+              alignSelf: "center",
+              marginBottom: "5%",
+              height: 60,
+              width: 300,
+              alignContent: "center",
+              justifyContent: "center",
+              fontFamily: "robotoRegular",
+            }}
+          />
+          <TextInput
+            label="Password"
+            value={password}
+            onChangeText={(password) => setPassword(password)}
+            style={{
+              alignSelf: "center",
+              marginBottom: "5%",
+              height: 60,
+              width: 300,
+              alignContent: "center",
+              justifyContent: "center",
+              fontFamily: "robotoRegular",
+            }}
+            secureTextEntry={true}
+          />
+          <Button
+            mode="contained"
+            onPress={onSubmit}
+            theme={{ roundness: 10 }}
+            style={{
+              alignSelf: "center",
+              height: 50,
+              width: 200,
+              alignContent: "center",
+              justifyContent: "center",
+              marginBottom: "10%",
+            }}
+            labelStyle={{
+              fontFamily: "robotoRegular",
+            }}
+          >
+            Login
+          </Button>
+          <Text
+            style={{
+              textAlign: "center",
+              fontSize: 12,
+              marginBottom: "5%",
+              fontFamily: "robotoRegular",
+            }}
+          >
+            <Text>Don't have an account ? </Text>
+            <Text
+              onPress={() => navigation.navigate("Register Account")}
+              style={{
+                color: "blue",
+              }}
+            >
+              Create An Account
+            </Text>
+          </Text>
+          <Text
+            onPress={() => navigation.navigate("Forgot Password")}
+            style={{
+              textAlign: "center",
+              fontSize: 12,
+              marginBottom: "30%",
+              color: "blue",
+              fontFamily: "robotoRegular",
+            }}
+          >
+            Forgot Password
+          </Text>
+        </View>
       </ImageBackground>
     </PaperProvider>
   );
-}
+};
 const mapStateToProps = (state) => ({
   isAuthenticated: state.auth.isAuthenticated,
   loading: state.auth.loading,

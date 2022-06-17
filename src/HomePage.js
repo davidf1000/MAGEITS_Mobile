@@ -46,7 +46,6 @@ function HomePage({ navigation }) {
         tabBarOptions={{
           activeTintColor: "#5465ff",
           inactiveTintColor: "gray",
-        //   style: { size:20 },
         }}
       >
         <Tab.Screen name="Home" component={Home} />

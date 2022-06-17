@@ -69,28 +69,39 @@ function Book2({ route, navigation }) {
   }, []);
   return (
     <PaperProvider theme={theme}>
-      <View style={{ flex: 1, backgroundColor: '#5465ff', paddingTop: 10, paddingLeft: 1, paddingRight: 1, paddingBottom: 10 }}>
+      <View
+        style={{
+          flex: 1,
+          backgroundColor: "#5465ff",
+          paddingTop: 10,
+          paddingLeft: 1,
+          paddingRight: 1,
+          paddingBottom: 10,
+        }}
+      >
         <View
           style={{
             flex: 1,
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            marginTop: '5%',
-            marginBottom: '2%',
-            marginLeft: '5%',
-            marginRight: '5%',
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            marginTop: "5%",
+            marginBottom: "2%",
+            marginLeft: "5%",
+            marginRight: "5%",
             borderRadius: 20,
-            backgroundColor: '#fff',
+            backgroundColor: "#fff",
             padding: 5,
-            shadowColor: '#000',
+            shadowColor: "#000",
             shadowOffset: { width: 0, height: 2 },
             shadowOpacity: 0.5,
             shadowRadius: 2,
             elevation: 2,
           }}
         >
-          <View style={{ flex: 2, alignItems: "center", justifyContent: "center" }}>
+          <View
+            style={{ flex: 2, alignItems: "center", justifyContent: "center" }}
+          >
             <View
               style={{
                 flex: 2.5,
@@ -101,13 +112,13 @@ function Book2({ route, navigation }) {
               }}
             >
               <Image
-                source={require('../../img/logo.png')}
+                source={require("../../img/logo.png")}
                 style={{
                   padding: 5,
                   height: 30,
                   width: 30,
-                  justifyContent: 'center',
-                  alignItems: 'center',
+                  justifyContent: "center",
+                  alignItems: "center",
                 }}
               />
               <Text
@@ -121,9 +132,15 @@ function Book2({ route, navigation }) {
                 }}
               >
                 Book a Visit
-          </Text>
+              </Text>
               <View style={{ flex: 1, marginBottom: "5%" }}>
-                <View style={{ width: width - 10, paddingLeft: 20, paddingRight: 20 }}>
+                <View
+                  style={{
+                    width: width - 10,
+                    paddingLeft: 20,
+                    paddingRight: 20,
+                  }}
+                >
                   <StepIndicator
                     customStyles={customStyles}
                     currentPosition={2}
@@ -158,20 +175,26 @@ function Book2({ route, navigation }) {
                       uncheckedColor="gray"
                       color="#5465ff"
                     />
-                    <Text style={{ fontFamily: "robotoRegular", fontSize: 20, marginTop: 3, marginHorizontal: 14 }}>{`Session ${i + 1
-                      } (${x.session_from.substring(0, 5)} - ${x.session_to.substring(
-                        0,
-                        5
-                      )})`}</Text>
+                    <Text
+                      style={{
+                        fontFamily: "robotoRegular",
+                        fontSize: 20,
+                        marginTop: 3,
+                        marginHorizontal: 14,
+                      }}
+                    >{`Session ${i + 1} (${x.session_from.substring(
+                      0,
+                      5
+                    )} - ${x.session_to.substring(0, 5)})`}</Text>
                   </View>
                 ))
               ) : (
-                  <ActivityIndicator
-                    style={{ margin: "20%" }}
-                    size="large"
-                    color="#5465ff"
-                  />
-                )}
+                <ActivityIndicator
+                  style={{ margin: "20%" }}
+                  size="large"
+                  color="#5465ff"
+                />
+              )}
             </View>
             <View
               style={{
@@ -199,7 +222,7 @@ function Book2({ route, navigation }) {
                 }}
               >
                 Back
-          </Button>
+              </Button>
               <Button
                 mode="contained"
                 onPress={() => {
@@ -221,7 +244,7 @@ function Book2({ route, navigation }) {
                 }}
               >
                 Next
-          </Button>
+              </Button>
             </View>
           </View>
         </View>

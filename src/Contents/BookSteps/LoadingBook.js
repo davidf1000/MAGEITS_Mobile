@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { View, Image, Text } from "react-native";
 import {
   DefaultTheme,
@@ -18,16 +18,16 @@ const theme = {
 };
 
 function LoadingBook({ navigation }) {
-    const [loading,setLoading]=useState(true);
-    useEffect(()=>{
-        const fetchHistory=  ()=>{
-            setLoading(false);
-            navigation.navigate("Step 4")
-        }
-        // Tunggu 5 detik abis itu navigate home
-        const interval = setInterval(fetchHistory,3000);
-        return ()=>clearInterval(interval);
-      },[])
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    const fetchHistory = () => {
+      setLoading(false);
+      navigation.navigate("Step 4");
+    };
+    // Tunggu 5 detik abis itu navigate home
+    const interval = setInterval(fetchHistory, 3000);
+    return () => clearInterval(interval);
+  }, []);
   return (
     <PaperProvider theme={theme}>
       <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
@@ -46,7 +46,7 @@ function LoadingBook({ navigation }) {
             fontSize: 20,
             alignSelf: "center",
             marginBottom: "5%",
-            fontFamily: 'robotoRegular'
+            fontFamily: "robotoRegular",
           }}
         >
           Welcome Back

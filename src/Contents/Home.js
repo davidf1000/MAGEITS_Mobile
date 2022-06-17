@@ -25,15 +25,13 @@ const newsCovid = [
     title: "Break News !",
     content:
       "Tambah 3.732, Total Kasus Virus Corona Indonesia Jadi 389.712 per 25 Oktober 2020",
-    url:
-      "https://ichef.bbci.co.uk/news/640/cpsprodpb/237A/production/_111228090_27eaca61-6851-44df-90ea-0e4cc2fa94d1.jpg",
+    url: "https://ichef.bbci.co.uk/news/640/cpsprodpb/237A/production/_111228090_27eaca61-6851-44df-90ea-0e4cc2fa94d1.jpg",
   },
   {
     title: "Penyebaran Covid-19",
     content:
       "Pemerintah mewaspadai akan timbulnya klaster baru covid-19 di masa liburan akhir Oktober 2020 ini.",
-    url:
-      "https://www.telegraph.co.uk/content/dam/Travel/2018/August/adults%20iStock-672425798-xlarge.jpg",
+    url: "https://www.telegraph.co.uk/content/dam/Travel/2018/August/adults%20iStock-672425798-xlarge.jpg",
   },
 ];
 
@@ -41,15 +39,13 @@ const newsHospital = [
   {
     title: "Pasien COVID-19 di Kaltim",
     content: "2.806 Pasien COVID-19 di Kaltim Dirawat di Rumah Sakit",
-    url:
-      "https://cdn.idntimes.com/content-images/post/20200826/whatsapp-image-2020-08-26-at-123933-pm-c8dc7fcd84a55eff57d336c43e1ea259_600x400.jpeg",
+    url: "https://cdn.idntimes.com/content-images/post/20200826/whatsapp-image-2020-08-26-at-123933-pm-c8dc7fcd84a55eff57d336c43e1ea259_600x400.jpeg",
   },
   {
     title: "Rumah Sakit Penuh !",
     content:
       "Warga Batam saat ini harus benar-benar bisa menjaga kesehatan, jangan sampai sakit, apalagi sampai harus dirawat di rumah sakit Ya, saat ini semua kapasitas rumah sakit di Batam sudah full, bahkan beberapa rumah sakit melebihi kapasitas, alias over.Mereka yang menguasai rumah sakit saat ini adalah pasien yang terinfeksi virus corona covid 19 Kota Batam. ",
-    url:
-      "https://batamclick.com/Property/uploads/2020/10/IMG-20201025-WA0023_copy_640x480.jpg",
+    url: "https://batamclick.com/Property/uploads/2020/10/IMG-20201025-WA0023_copy_640x480.jpg",
   },
 ];
 const newsLifestyle = [
@@ -57,15 +53,13 @@ const newsLifestyle = [
     title: "Keluarga Terdampak COVID-19",
     content:
       "Tak hanya orang dewasa, pandemi juga berdampak signifikan pada anak. Oleh karena itu, IKEA Indonesia menggandeng organisai non-profit Save The Children berupaya membantu anak-anak dan keluarga terdampak situasi krisis kesehatan global melalui donasi penjualan produk mainan.",
-    url:
-      "https://cdn0-production-images-kly.akamaized.net/WjSoNWoFqGpap6vzEKvO4XeJKA4=/640x640/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/3277000/original/090647100_1603522857-Ikea_Indonesia.jpeg",
+    url: "https://cdn0-production-images-kly.akamaized.net/WjSoNWoFqGpap6vzEKvO4XeJKA4=/640x640/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/3277000/original/090647100_1603522857-Ikea_Indonesia.jpeg",
   },
   {
     title: "Fashion Show",
     content:
       "Fashion show virtual yang ditayangkan secara streaming menjadi salah satu siasat yang dilakukan pelaku industri mode ketika peragaan busana seperti biasanya tak dapat terselenggara karena pandemi Covid-19.",
-    url:
-      "https://cdn1-production-images-kly.akamaized.net/62blTPKTKGgoFGVcRme8NaUcgN4=/1231x710/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/3277152/original/078273000_1603543307-20201024-Fashion-Show-Di-tengah-Pandemi-FANANI-1.jpg",
+    url: "https://cdn1-production-images-kly.akamaized.net/62blTPKTKGgoFGVcRme8NaUcgN4=/1231x710/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/3277152/original/078273000_1603543307-20201024-Fashion-Show-Di-tengah-Pandemi-FANANI-1.jpg",
   },
 ];
 const cards = [
@@ -85,43 +79,43 @@ const cards = [
     id: "1",
     title: "Hospital News",
     picture: require("../img/hospital.jpg"),
-    content:
-    <View>
-    {newsHospital.map((x) => (
-      <CardNews title={x.title} url={x.url} content={x.content} />
-    ))}
-  </View>
-    ,
+    content: (
+      <View>
+        {newsHospital.map((x) => (
+          <CardNews title={x.title} url={x.url} content={x.content} />
+        ))}
+      </View>
+    ),
   },
   {
     id: "2",
     title: "Life Style",
     picture: require("../img/lifestyle.jpg"),
-    content: 
-    <View>
-    {newsLifestyle.map((x) => (
-      <CardNews title={x.title} url={x.url} content={x.content} />
-    ))}
-  </View>
-    ,
+    content: (
+      <View>
+        {newsLifestyle.map((x) => (
+          <CardNews title={x.title} url={x.url} content={x.content} />
+        ))}
+      </View>
+    ),
   },
 ];
 
-const Home= ({
-    match,
-    attributes: {
-        userId,
-        address,
-        birthdate,
-        phone,
-        gender,
-        admin,
-        profile,
-        name,
-        email,
-        ektp,
-    },
-    navigation
+const Home = ({
+  match,
+  attributes: {
+    userId,
+    address,
+    birthdate,
+    phone,
+    gender,
+    admin,
+    profile,
+    name,
+    email,
+    ektp,
+  },
+  navigation,
 }) => {
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
@@ -162,7 +156,7 @@ const Home= ({
             }}
           >
             <Image
-              source={{uri:profile}}
+              source={{ uri: profile }}
               style={{
                 width: 60,
                 borderRadius: 400 / 2,
@@ -180,14 +174,14 @@ const Home= ({
                 textAlign: "left",
                 fontFamily: "robotoRegular",
                 fontSize: 27,
-                marginLeft:10,
-                marginTop:7
+                marginLeft: 10,
+                marginTop: 7,
               }}
             >
-              Welcome,{'\n         '} {name}
+              Welcome,{"\n         "} {name}
             </Text>
             <Image
-              source={require('../img/logo.png')}
+              source={require("../img/logo.png")}
               style={{
                 width: 30,
                 overflow: "hidden",
@@ -258,7 +252,7 @@ const Home= ({
                   alignItems: "center",
                 }}
               >
-                <FontAwesome name="hospital-o" size={36} color="#5465ff" /> 
+                <FontAwesome name="hospital-o" size={36} color="#5465ff" />
               </View>
               <View style={{ flex: 1, flexDirection: "column" }}>
                 <Text
@@ -341,7 +335,7 @@ const Home= ({
               textAlign: "center",
               flex: 3,
               fontFamily: "robotoBold",
-              fontSize:20
+              fontSize: 20,
             }}
           >
             View
@@ -379,8 +373,7 @@ const Home= ({
               textAlign: "center",
               flex: 3,
               fontFamily: "robotoBold",
-              fontSize:20
-
+              fontSize: 20,
             }}
           >
             View
@@ -418,8 +411,7 @@ const Home= ({
               textAlign: "center",
               flex: 3,
               fontFamily: "robotoBold",
-              fontSize:20
-
+              fontSize: 20,
             }}
           >
             View
@@ -486,14 +478,14 @@ const Home= ({
       </View>
     </View>
   );
-}
+};
 
 Home.propTypes = {
-    attributes: PropTypes.object.isRequired,
+  attributes: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({
-    attributes: state.auth.attributes,
+  attributes: state.auth.attributes,
 });
 
 export default connect(mapStateToProps, {})(Home);

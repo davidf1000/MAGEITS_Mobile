@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { View, Image, Text, ActivityIndicator, ImageBackground } from "react-native";
+import {
+  View,
+  Image,
+  Text,
+  ActivityIndicator,
+  ImageBackground,
+} from "react-native";
 import {
   DefaultTheme,
   Provider as PaperProvider,
@@ -9,7 +15,6 @@ import {
 
 //Redux
 import { connect } from "react-redux";
-import PropTypes from "prop-types";
 
 const theme = {
   ...DefaultTheme,
@@ -26,46 +31,46 @@ function LoadingPage({ navigation, auth }) {
   useEffect(() => {
     const fetchHistory = () => {
       setLoading(false);
-      navigation.navigate("Home")
-    }
+      navigation.navigate("Home");
+    };
     // Tunggu 5 detik abis itu navigate home
     const interval = setInterval(fetchHistory, 3000);
     return () => clearInterval(interval);
-  }, [])
+  }, []);
   return (
     <PaperProvider theme={theme}>
-     
-        <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-          <Image
-            source={require("./img/logo.png")}
-            style={{
-              marginBottom: "10%",
-              height: "25%",
-              width: "40%",
-            }}
-          />
-          <Text
-            style={{
-              fontSize: 25,
-              marginBottom: "5%",
-              fontFamily: 'robotoRegular',
-              textAlign: 'center'
-            }}
-          >
-            Welcome Back,{'\n\n'}
-            {auth && auth.user && auth.user.name}
-          </Text>
-          <ActivityIndicator style={{ marginTop: 10 }} size="large" color="#5465ff" />
-        </View>
-      
+      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+        <Image
+          source={require("./img/logo.png")}
+          style={{
+            marginBottom: "10%",
+            height: "25%",
+            width: "40%",
+          }}
+        />
+        <Text
+          style={{
+            fontSize: 25,
+            marginBottom: "5%",
+            fontFamily: "robotoRegular",
+            textAlign: "center",
+          }}
+        >
+          Welcome Back,{"\n\n"}
+          {auth && auth.user && auth.user.name}
+        </Text>
+        <ActivityIndicator
+          style={{ marginTop: 10 }}
+          size="large"
+          color="#5465ff"
+        />
+      </View>
     </PaperProvider>
   );
 }
-// LoadingPage.propTypes = {
-//   name: PropTypes.string.isRequired
-// };
+
 const mapStateToProps = (state) => ({
-  auth: state.auth
+  auth: state.auth,
 });
 
 export default connect(mapStateToProps, {})(LoadingPage);

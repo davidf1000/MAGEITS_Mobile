@@ -79,28 +79,39 @@ function Book4({ route, userId, name }) {
   };
   return (
     <PaperProvider theme={theme}>
-      <View style={{ flex: 1, backgroundColor: '#5465ff', paddingTop: 10, paddingLeft: 1, paddingRight: 1, paddingBottom: 10 }}>
+      <View
+        style={{
+          flex: 1,
+          backgroundColor: "#5465ff",
+          paddingTop: 10,
+          paddingLeft: 1,
+          paddingRight: 1,
+          paddingBottom: 10,
+        }}
+      >
         <View
           style={{
             flex: 1,
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            marginTop: '5%',
-            marginBottom: '2%',
-            marginLeft: '5%',
-            marginRight: '5%',
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            marginTop: "5%",
+            marginBottom: "2%",
+            marginLeft: "5%",
+            marginRight: "5%",
             borderRadius: 20,
-            backgroundColor: '#fff',
+            backgroundColor: "#fff",
             padding: 5,
-            shadowColor: '#000',
+            shadowColor: "#000",
             shadowOffset: { width: 0, height: 2 },
             shadowOpacity: 0.5,
             shadowRadius: 2,
             elevation: 2,
           }}
         >
-          <View style={{ flex: 2, alignItems: "center", justifyContent: "center" }}>
+          <View
+            style={{ flex: 2, alignItems: "center", justifyContent: "center" }}
+          >
             <View
               style={{
                 flex: 2.5,
@@ -111,14 +122,13 @@ function Book4({ route, userId, name }) {
               }}
             >
               <Image
-                source={require('../../img/logo.png')}
+                source={require("../../img/logo.png")}
                 style={{
                   padding: 5,
                   height: 30,
                   width: 30,
-                  justifyContent: 'center',
-                  alignItems: 'center',
-
+                  justifyContent: "center",
+                  alignItems: "center",
                 }}
               />
               <Text
@@ -132,9 +142,15 @@ function Book4({ route, userId, name }) {
                 }}
               >
                 Book a Visit
-          </Text>
+              </Text>
               <View style={{ flex: 1, marginBottom: "5%" }}>
-                <View style={{ width: width - 10, paddingLeft: 20, paddingRight: 20 }}>
+                <View
+                  style={{
+                    width: width - 10,
+                    paddingLeft: 20,
+                    paddingRight: 20,
+                  }}
+                >
                   <StepIndicator
                     customStyles={customStyles}
                     currentPosition={4}
@@ -162,7 +178,7 @@ function Book4({ route, userId, name }) {
                 }}
               >
                 Thank you for booking a visit!
-          </Text>
+              </Text>
               <Text
                 style={{
                   fontSize: 15,
@@ -172,9 +188,8 @@ function Book4({ route, userId, name }) {
                   fontFamily: "robotoRegular",
                 }}
               >
-                Click the button below to generate your
-                visitor digital badge
-            {"\n"}
+                Click the button below to generate your visitor digital badge
+                {"\n"}
               </Text>
               <Button
                 mode="contained"
@@ -190,11 +205,18 @@ function Book4({ route, userId, name }) {
                 }}
               >
                 View Badge
-          </Button>
-              {click &&
-                <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+              </Button>
+              {click && (
+                <View
+                  style={{
+                    flex: 1,
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
                   <ActivityIndicator size="large" color="#5465ff" />
-                </View>}
+                </View>
+              )}
             </View>
           </View>
         </View>

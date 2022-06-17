@@ -1,9 +1,10 @@
 # MAGEITS_Mobile
 Mobile App project using react native for Mage ITS Iot Development competition and won 1st place 
 
-Documentation : 
+## Front end: 
+https://github.com/davidf1000/AWSome-buildonindonesia 
 
-Video : https://drive.google.com/file/d/1LDrfQ2vJEh8bAzodVyRZqNIvZzDI3xw2/view?usp=sharing 
+## Documentation : 
+Video and Pitch Deck : https://drive.google.com/drive/folders/1wHyc1zreh5rwJ48a5JRElcQdS-vPHaN_?usp=sharing 
 
-Pitch Deck : https://drive.google.com/file/d/1uIVhtdITG42400MF7Zl4Mzah44zIOAng/view?usp=sharing
 
