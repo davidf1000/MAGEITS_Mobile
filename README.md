@@ -16,16 +16,16 @@ Video and Pitch Deck : https://drive.google.com/drive/folders/1wHyc1zreh5rwJ48a5
 - Expo
 - AWS Cognito (Auth)
 
-![](https://github.com/davidf1000/MAGEITS_Mobile/tree/master/docs/architecturemobile.png)
+![](https://github.com/davidf1000/MAGEITS_Mobile/blob/master/docs/architecturemobile.png)
 
 ## Docs
 
-![](https://github.com/davidf1000/MAGEITS_Mobile/tree/master/docs/splash.png)
+![](https://github.com/davidf1000/MAGEITS_Mobile/blob/master/docs/splash.png)
 
 <br/>
 
-![](https://github.com/davidf1000/MAGEITS_Mobile/tree/master/docs/home.png)
+![](https://github.com/davidf1000/MAGEITS_Mobile/blob/master/docs/home.png)
 
 <br/>
 
-![](https://github.com/davidf1000/MAGEITS_Mobile/tree/master/docs/badge.png)
+![](https://github.com/davidf1000/MAGEITS_Mobile/blob/master/docs/badge.png)
